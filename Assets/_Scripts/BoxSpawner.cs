@@ -17,6 +17,7 @@ public class BoxSpawner : MonoBehaviour
 
     float lastSpawnTime;
     float currentLowestRow;
+    [SerializeField] List<int> boxDir;
 
     void Start()
     {
@@ -43,7 +44,7 @@ public class BoxSpawner : MonoBehaviour
     {
         if (Time.time - lastSpawnTime > spawnInterval)
         {
-            int randomSameTimeBoxFall = Random.Range(1, maxSameTimeBoxFall);
+            int randomSameTimeBoxFall = Random.Range(1, maxSameTimeBoxFall+1);
             HashSet<int> columns = new();
             columns.Add(-1);
             for (int i = 0; i<randomSameTimeBoxFall; i++)
@@ -87,6 +88,9 @@ public class BoxSpawner : MonoBehaviour
 
         BoxBehaviour box = (BoxBehaviour) boxFactory.GetProduct();
         box.transform.position = WorldGrid.Instance.GetCellToWorldPosition( new Vector2Int(positionCellX, spawnPositionY));
+        Vector3 dir = box.transform.localScale;
+        dir.x *= boxDir[Random.Range(0, boxDir.Count)];
+        box.transform.localScale = dir;
         box.targetFallCell = new Vector2Int(positionCellX, colummBoxQuantity[positionCellX]);
         colummBoxQuantity[positionCellX]++;
 
@@ -112,9 +116,6 @@ public class BoxSpawner : MonoBehaviour
         }
 
         box.Falling();
-
-        Debug.Log($"lowest row: {currentLowestRow}");
-        Debug.Log($"lowest quantity: {columnLowestQuantity}");
 
         return positionCellX;
 

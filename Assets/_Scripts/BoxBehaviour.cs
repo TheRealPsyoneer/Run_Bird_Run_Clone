@@ -7,11 +7,13 @@ using TMPro;
 public class BoxBehaviour : MonoBehaviour, IFactoryProduct
 {
     [SerializeField] float fallTimePerCell;
+    public static float FallTimePerCell;
     public Stack<IFactoryProduct> pool { get; set; }
     public Vector2Int targetFallCell { get; set; }
     public void Initialize()
     {
         gameObject.SetActive(true);
+        FallTimePerCell = fallTimePerCell;
     }
 
     public void Falling()
