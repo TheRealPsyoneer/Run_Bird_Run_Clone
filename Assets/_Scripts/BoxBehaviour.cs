@@ -21,7 +21,8 @@ public class BoxBehaviour : MonoBehaviour, IFactoryProduct
         Vector2Int startCellPosition = WorldGrid.Instance.GetWorldToCellPosition(transform.position);
         Vector3 targetPosition = WorldGrid.Instance.GetCellToWorldPosition(targetFallCell);
         transform.DOKill();
-        transform.DOMove(targetPosition, (Mathf.Abs(startCellPosition.y-targetFallCell.y))*fallTimePerCell).SetEase(Ease.Linear);
+        transform.DOMove(targetPosition, (Mathf.Abs(startCellPosition.y - targetFallCell.y)) * fallTimePerCell)
+            .SetEase(Ease.Linear);
     }
 
     private void OnDisable()

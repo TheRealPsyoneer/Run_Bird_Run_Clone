@@ -16,7 +16,7 @@ public class BoxSpawner : MonoBehaviour
     [SerializeField] int maxColumnQuantityDifference;
 
     float lastSpawnTime;
-    float currentLowestRow;
+    int currentLowestRow;
     [SerializeField] List<int> boxDir;
 
     void Start()

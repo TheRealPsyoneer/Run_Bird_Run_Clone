@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59eec8bce7790a84b88c8e349b9d1f7f, type: 3}
   m_Name: Box Factory
   m_EditorClassIdentifier: 
-  product: {fileID: 4308878019778542319, guid: a34290ec36475be4d8320f18abcd68fc, type: 3}
+  product: {fileID: 6447058932730169220, guid: e0b9f4123880eb94d9043d13bfe824f3, type: 3}
   poolCapacity: 3
