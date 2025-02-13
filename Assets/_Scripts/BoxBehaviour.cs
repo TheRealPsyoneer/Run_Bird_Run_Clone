@@ -10,6 +10,8 @@ public class BoxBehaviour : MonoBehaviour, IFactoryProduct
     public static float FallTimePerCell;
     public Stack<IFactoryProduct> pool { get; set; }
     public Vector2Int targetFallCell { get; set; }
+    [SerializeField] EventSO boxFallCompleteEvent;
+    public bool isInColumnLowestQuantity;
     public void Initialize()
     {
         gameObject.SetActive(true);
@@ -22,7 +24,8 @@ public class BoxBehaviour : MonoBehaviour, IFactoryProduct
         Vector3 targetPosition = WorldGrid.Instance.GetCellToWorldPosition(targetFallCell);
         transform.DOKill();
         transform.DOMove(targetPosition, (Mathf.Abs(startCellPosition.y - targetFallCell.y)) * fallTimePerCell)
-            .SetEase(Ease.Linear);
+            .SetEase(Ease.Linear)
+            .OnComplete(() => boxFallCompleteEvent.Broadcast(this));
     }
 
     private void OnDisable()

@@ -2,15 +2,17 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BoxSpawner : MonoBehaviour
 {
-    public int spawnPositionY {  get; set; }
+    public static BoxSpawner Instance;
+    public int spawnPositionY { get; set; }
     public float spawnInterval;
 
     [SerializeField] MyFactorySO boxFactory;
     public int maxSameTimeBoxFall;
-    Dictionary<int, int> colummBoxQuantity;
+    public Dictionary<int, int> colummBoxQuantity;
 
     int columnHighestQuantity, columnLowestQuantity;
     [SerializeField] int maxColumnQuantityDifference;
@@ -18,6 +20,15 @@ public class BoxSpawner : MonoBehaviour
     float lastSpawnTime;
     int currentLowestRow;
     [SerializeField] List<int> boxDir;
+    [SerializeField] EventSO boxFallCompleteEvent;
+    public Dictionary<BoxBehaviour, int> boxColumnNumber = new();
+    int curWaveColumnLowestQuantity;
+    bool lastWaveDropDone;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {
@@ -25,7 +36,18 @@ public class BoxSpawner : MonoBehaviour
         boxFactory.Initialize();
         spawnPositionY = WorldGrid.Instance.GetWorldToCellPosition(transform.position).y;
 
+        lastWaveDropDone = true;
         SetUpColumn();
+    }
+
+    private void OnEnable()
+    {
+        boxFallCompleteEvent.ThingHappened += OnBoxFallComplete;
+    }
+
+    private void OnDisable()
+    {
+        boxFallCompleteEvent.ThingHappened -= OnBoxFallComplete;
     }
 
     private void SetUpColumn()
@@ -42,83 +64,138 @@ public class BoxSpawner : MonoBehaviour
 
     void Update()
     {
-        if (Time.time - lastSpawnTime > spawnInterval)
+        if (Time.time - lastSpawnTime > spawnInterval && lastWaveDropDone)
         {
-            int randomSameTimeBoxFall = Random.Range(1, maxSameTimeBoxFall+1);
+            int randomSameTimeBoxFall = Random.Range(1, maxSameTimeBoxFall + 1);
             HashSet<int> columns = new();
-            columns.Add(-1);
-            for (int i = 0; i<randomSameTimeBoxFall; i++)
-            {
-                SpawnBox(columns);
-            }
-            
+            lastWaveDropDone = false;
+
+            List<int> fallColumns = GetFallColumns(columns, randomSameTimeBoxFall);
+            SpawnBox(fallColumns);
+
             lastSpawnTime = Time.time;
         }
     }
 
-    public int SpawnBox(HashSet<int> columns)
+    public List<int> GetFallColumns(HashSet<int> columns, int numbers)
     {
+        List<int> fallColumns = new();
         int positionCellX = -1;
+        columns.Add(-1);
+        for (int j = 0; j < numbers; j++)
 
-        
-        if (columnHighestQuantity - columnLowestQuantity == maxColumnQuantityDifference)
         {
-            List<int> temp = new();
-            for (int i=0; i < WorldGrid.Instance.boundCellX; i++)
+            if (columnHighestQuantity - columnLowestQuantity == maxColumnQuantityDifference)
+
             {
-                if (colummBoxQuantity[i] == columnLowestQuantity)
+                List<int> temp = new();
+                for (int i = 0; i < WorldGrid.Instance.boundCellX; i++)
                 {
-                    temp.Add(i);
+                    if (colummBoxQuantity[i] == columnLowestQuantity)
+                    {
+                        temp.Add(i);
+                    }
+                }
+
+                int count = 0;
+                foreach (int column in temp)
+                {
+                    if (columns.Contains(column))
+                    {
+                        count++;
+                    }
+                }
+
+                if (count == temp.Count)
+                {
+                    while (columns.Contains(positionCellX))
+                    {
+                        positionCellX = Random.Range(0, WorldGrid.Instance.boundCellX);
+                    }
+                }
+                else
+                {
+                    while (columns.Contains(positionCellX))
+                    {
+                        positionCellX = temp[Random.Range(0, temp.Count)];
+                    }
                 }
             }
-
-            while (columns.Contains(positionCellX))
+            else
             {
-                positionCellX = temp[Random.Range(0, temp.Count)];
+                while (columns.Contains(positionCellX))
+                {
+                    positionCellX = Random.Range(0, WorldGrid.Instance.boundCellX);
+                }
             }
+            columns.Add(positionCellX);
+            fallColumns.Add(positionCellX);
         }
-        else
+
+        int lowestQuantity = int.MaxValue;
+        for (int i = 0; i < fallColumns.Count; i++)
         {
-            while (columns.Contains(positionCellX))
+            if (colummBoxQuantity[fallColumns[i]] < lowestQuantity)
             {
-                positionCellX = Random.Range(0, WorldGrid.Instance.boundCellX);
+                lowestQuantity = colummBoxQuantity[fallColumns[i]];
+                curWaveColumnLowestQuantity = fallColumns[i];
             }
         }
-        columns.Add(positionCellX);
 
-        BoxBehaviour box = (BoxBehaviour) boxFactory.GetProduct();
-        box.transform.position = WorldGrid.Instance.GetCellToWorldPosition( new Vector2Int(positionCellX, spawnPositionY));
-        Vector3 dir = box.transform.localScale;
-        dir.x *= boxDir[Random.Range(0, boxDir.Count)];
-        box.transform.localScale = dir;
-        box.targetFallCell = new Vector2Int(positionCellX, colummBoxQuantity[positionCellX]);
-        colummBoxQuantity[positionCellX]++;
+
+        return fallColumns;
+    }
+
+    public void SpawnBox(List<int> fallColumns)
+    {
+        for (int i = 0; i < fallColumns.Count; i++)
+        {
+            BoxBehaviour box = (BoxBehaviour)boxFactory.GetProduct();
+            box.transform.position = WorldGrid.Instance.GetCellToWorldPosition(new Vector2Int(fallColumns[i], spawnPositionY));
+
+            Vector3 dir = box.transform.localScale;
+            dir.x *= boxDir[Random.Range(0, boxDir.Count)];
+            box.transform.localScale = dir;
+
+            box.targetFallCell = new Vector2Int(fallColumns[i], colummBoxQuantity[fallColumns[i]]);
+            boxColumnNumber[box] = fallColumns[i];
+
+            box.isInColumnLowestQuantity = fallColumns[i] == curWaveColumnLowestQuantity ? true : false;
+
+            box.Falling();
+        }
+    }
+
+    public void OnBoxFallComplete(BoxBehaviour box)
+    {
+        if (box.isInColumnLowestQuantity)
+        {
+            lastWaveDropDone = true;
+        }
+
+        colummBoxQuantity[boxColumnNumber[box]]++;
 
         int count = 0;
-        for (int i=0; i < WorldGrid.Instance.boundCellX; i++)
+        for (int i = 0; i < WorldGrid.Instance.boundCellX; i++)
         {
             if (colummBoxQuantity[i] > columnLowestQuantity)
             {
                 count++;
             }
+
+            if (count == WorldGrid.Instance.boundCellX)
+            {
+
+                currentLowestRow++;
+                columnLowestQuantity++;
+                spawnPositionY++;
+                Camera.main.transform.DOMoveY(Camera.main.transform.position.y + WorldGrid.Instance.CelValue, 1);
+            }
+
+            if (colummBoxQuantity[boxColumnNumber[box]] > columnHighestQuantity)
+            {
+                columnHighestQuantity++;
+            }
         }
-        if (count == WorldGrid.Instance.boundCellX)
-        {
-            currentLowestRow++;
-            columnLowestQuantity++;
-            spawnPositionY++;
-            transform.DOMoveY(spawnPositionY, 0);
-        }
-
-        if (colummBoxQuantity[positionCellX] > columnHighestQuantity)
-        {
-            columnHighestQuantity++;
-        }
-
-        box.Falling();
-
-        return positionCellX;
-
-        
     }
 }

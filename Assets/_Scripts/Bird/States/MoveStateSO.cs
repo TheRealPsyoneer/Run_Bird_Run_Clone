@@ -19,6 +19,11 @@ public class MoveStateSO : StateNode
 
     public override void Execute()
     {
+        //if (!bird.isClimbing)
+        //{
+        //    bird.directions = bird.normalDirections;
+        //}
+
         bird.direction = bird.directions[bird.directionIndex];
         if (bird.curSpeed < 0.1f 
             || (bird.direction == Vector2.left && bird.transform.position.x < boundLeftX) 
@@ -27,6 +32,12 @@ public class MoveStateSO : StateNode
             bird.stateMachine.TransitionTo(bird.stateStorage[State.Idle]);
             return;
         }
+
+        //if (!bird.isTouchingGround && (bird.curSpeed == 0 || !bird.isClimbing))
+        //{
+        //    bird.stateMachine.TransitionTo(bird.stateStorage[State.Fall]);
+        //    return;
+        //}
 
         
         if (bird.direction == Vector2.up)
