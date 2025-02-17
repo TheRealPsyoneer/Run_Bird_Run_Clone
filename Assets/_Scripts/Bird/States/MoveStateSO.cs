@@ -8,22 +8,32 @@ public class MoveStateSO : StateNode
     Bird bird;
     float boundLeftX;
     float boundRightX;
+
+    [SerializeField] float sweatInterval;
+    [SerializeField] float dustInterval;
+    float initFrameSweat;
+    float initFrameDust;
+    bool activateSweat2;
+
+
     public override void Enter()
     {
         bird = (Bird)unit;
         boundLeftX = WorldGrid.Instance.GetCellToWorldPosition(new Vector2Int(0, 0)).x;
         boundRightX = WorldGrid.Instance.GetCellToWorldPosition(new Vector2Int(WorldGrid.Instance.boundCellX-1, 0)).x;
+
+        bird.animator.SetBool("IsRunning", true);
+
+        initFrameSweat = Time.time;
+        activateSweat2 = false;
+        initFrameDust = 0;
+        bird.sweat.gameObject.SetActive(true);
     }
 
     public override void FixedExecute() { }
 
     public override void Execute()
     {
-        //if (!bird.isClimbing)
-        //{
-        //    bird.directions = bird.normalDirections;
-        //}
-
         bird.direction = bird.directions[bird.directionIndex];
 
         if (bird.curSpeed < 0.1f 
@@ -34,8 +44,17 @@ public class MoveStateSO : StateNode
             return;
         }
 
-        
+        if (Time.time - initFrameSweat >= sweatInterval && !activateSweat2)
+        {
+            bird.sweat2.gameObject.SetActive(true);
+            activateSweat2 = true;
+        }
 
+        if (Time.time - initFrameDust >= dustInterval)
+        {
+            bird.expression.CreateDust(bird.transform);
+            initFrameDust = Time.time;
+        }
 
         if (bird.direction == Vector2.up)
         {
@@ -55,6 +74,8 @@ public class MoveStateSO : StateNode
 
     public override void Exit()
     {
-
+        bird.animator.SetBool("IsRunning", false);
+        bird.sweat.gameObject.SetActive(false) ;
+        bird.sweat2.gameObject.SetActive(false);
     }
 }

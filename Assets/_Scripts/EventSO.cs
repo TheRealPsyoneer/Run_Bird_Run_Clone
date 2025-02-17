@@ -6,10 +6,16 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Event", menuName = "Event SO")]
 public class EventSO : ScriptableObject
 {
-    public Action<BoxBehaviour> ThingHappened;
+    public Action<BoxBehaviour> ThingHappenedBox;
+    public Action<Unit> ThingHappenedUnit;
 
     public void Broadcast(BoxBehaviour box)
     {
-        ThingHappened?.Invoke(box);
+        ThingHappenedBox?.Invoke(box);
+    }
+
+    public void Broadcast(Unit unit)
+    {
+        ThingHappenedUnit?.Invoke(unit);
     }
 }

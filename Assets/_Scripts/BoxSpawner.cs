@@ -11,6 +11,8 @@ public class BoxSpawner : MonoBehaviour
     public float spawnInterval;
 
     [SerializeField] MyFactorySO boxFactory;
+    [SerializeField] MyFactorySO warningFactory;
+    [SerializeField] MyFactorySO warningLineFactory;
     public int maxSameTimeBoxFall;
     public Dictionary<int, int> colummBoxQuantity;
 
@@ -34,6 +36,8 @@ public class BoxSpawner : MonoBehaviour
     {
         lastSpawnTime = Time.time;
         boxFactory.Initialize();
+        warningFactory.Initialize();
+        warningLineFactory.Initialize();
         spawnPositionY = WorldGrid.Instance.GetWorldToCellPosition(transform.position).y;
 
         lastWaveDropDone = true;
@@ -42,12 +46,12 @@ public class BoxSpawner : MonoBehaviour
 
     private void OnEnable()
     {
-        boxFallCompleteEvent.ThingHappened += OnBoxFallComplete;
+        boxFallCompleteEvent.ThingHappenedBox += OnBoxFallComplete;
     }
 
     private void OnDisable()
     {
-        boxFallCompleteEvent.ThingHappened -= OnBoxFallComplete;
+        boxFallCompleteEvent.ThingHappenedBox -= OnBoxFallComplete;
     }
 
     private void SetUpColumn()
@@ -152,6 +156,7 @@ public class BoxSpawner : MonoBehaviour
         {
             BoxBehaviour box = (BoxBehaviour)boxFactory.GetProduct();
             box.transform.position = WorldGrid.Instance.GetCellToWorldPosition(new Vector2Int(fallColumns[i], spawnPositionY));
+
 
             Vector3 dir = box.transform.localScale;
             dir.x *= boxDir[Random.Range(0, boxDir.Count)];

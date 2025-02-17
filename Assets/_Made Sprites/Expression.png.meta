@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,7 +103,1204 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Sweat
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 298
+        width: 60
+        height: 51
+      alignment: 9
+      pivot: {x: 0.68087846, y: 0.10480275}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed61e1ac7fb0b314fa7cae839389bcd2
+      internalID: 110631315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_2
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 300
+        width: 21
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70451638880001b458ac8ce31323be2b
+      internalID: 823978939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_3
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 332
+        width: 12
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4512af13bd66b7840b419ee0b2b4ac74
+      internalID: 1499013740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_4
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 334
+        width: 7
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6380eb4583e41924fa1cc0f6a1457f37
+      internalID: 586315639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_5
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 325
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52bdb093a0e3dd74d8aebb0ffdf7d4e2
+      internalID: 573244197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_6
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 335
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 763d18d0b78a33341b4913ae627605c4
+      internalID: -932124389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_7
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 276
+        width: 87
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2689f0a3f66250d45a9ab6fbbed9d249
+      internalID: -2133183025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_9
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 294
+        width: 21
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faa2b1535b977b346948b791572f50ee
+      internalID: 1613498589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_10
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 296
+        width: 25
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e3f6a2b79f1b7b489c57d6c16a94090
+      internalID: -808570158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_11
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 322
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09bbd841235163c4da947fd3bd8d25c5
+      internalID: -293424848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_12
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 305
+        width: 22
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da80ed2ab75bbe14fa4f964208301392
+      internalID: -2118267679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_13
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 321
+        width: 21
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5d721fd035ea6e47a0d047641a53ba7
+      internalID: 598486452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_14
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 273
+        width: 7
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbb901e9d682d834d96f4232fa89ba2b
+      internalID: 2091728816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_15
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 272
+        width: 19
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e905a4dc3b6e4d54fa55deaca6691c82
+      internalID: -540383508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_16
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 313
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ee4931cb96f8b54a87ba8f365c4f077
+      internalID: 1400151284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_17
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 313
+        width: 23
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bf712a59396fd24185246ac3240d179
+      internalID: 2051268040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_18
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 290
+        width: 23
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00b9ce19d7af4054cb235230f392b30b
+      internalID: -648821346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_19
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 304
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f07988785322b6e46879e9fc2d3f7a59
+      internalID: 1144108234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_20
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 272
+        width: 8
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be569458bf1edc54ab9986d01597f128
+      internalID: -1078394505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_21
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 272
+        width: 27
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 340e77e440ed5ae46b8fdd0aa0284218
+      internalID: -1188738697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_22
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 175
+        width: 111
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6100a7966dff473428fc9c88a9fd09cc
+      internalID: -1828816840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_23
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 247
+        width: 48
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3aea3ce2b25ac9647b6ce8e82aae318d
+      internalID: -1041010451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_24
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 277
+        width: 12
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7800158347b4ff459af4b9cad3bb315
+      internalID: 965130322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_25
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 277
+        width: 4
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e69fd1e82166db45a05a4eecfeb7f57
+      internalID: -1839703427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_26
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 280
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbf4669633d1c054688724d2ac80f12e
+      internalID: 893215611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 187
+        width: 92
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f6b5eee564adaa4dbe40887063e5b1a
+      internalID: -6498975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_28
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 208
+        width: 50
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f037b1db966f03b43a6fab2a3aa306fd
+      internalID: 733098414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_29
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 196
+        width: 91
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cd02428bc179324c85a49fa6add0bcd
+      internalID: 1832515969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_30
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 159
+        width: 98
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b979a4fb6eafb9947bbd00ecbeeca81d
+      internalID: 992330177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_31
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 162
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7480da6bc7b842d4086e7385e9f4d232
+      internalID: 222285537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_32
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 147
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea199f88c5090494ca41d51b96298f45
+      internalID: -328078401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_33
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 151
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e18f7d7ee1ed5314da37645ef704c4ea
+      internalID: 1288859886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_34
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 95
+        width: 88
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c576a9f5d72b7b04a9ca3cd85b671343
+      internalID: -1005796626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_35
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 151
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 834155a041e59f1428763d81dfea55f3
+      internalID: -1319260741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_36
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 94
+        width: 68
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32e78a856f484bb40b42374d32fd4ce3
+      internalID: -632746806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_37
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 147
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 934fa369bb132264084be69ec0eca5dc
+      internalID: -385930750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_38
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 142
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 503941e6641eb604bb18e3b36be68c96
+      internalID: 128946902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_39
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 111
+        width: 95
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88b88da88d58b1b499875f394980c99b
+      internalID: -1843404863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_40
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 139
+        width: 10
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64de9f74f88e6b441891413e6b81d8f8
+      internalID: -702086870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_41
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 127
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf2be7d6ab77b8d40a115fb4dad4cae5
+      internalID: 1317120576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_42
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 124
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61fcc1a176557b9479271f9f2d011357
+      internalID: 1809121880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_43
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 123
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ba6adc572b498c45bcff8a7ce40f821
+      internalID: 1139995746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_44
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 114
+        width: 40
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d98db61faca0744da2bf2831fa42bad
+      internalID: 1628504447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_45
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 57
+        width: 51
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ce32db02e177954088838b8fe00fdbd
+      internalID: -183428713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_46
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 32
+        width: 75
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30a604be9e72b874b8ef7084ac67f58b
+      internalID: 2008725011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_47
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 35
+        width: 70
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f020a383013497e4ebeffd087fe1ac6d
+      internalID: 801844994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_48
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 54
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fe9ab6d3d50a61478a63ab0f00f68e1
+      internalID: -414611304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_49
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 48
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70e62ef0430b5d24b9bb96893f2e1d8d
+      internalID: 1241094443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_50
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 19
+        width: 79
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0e16e5cc3de5964ebaca84bb9456ef9
+      internalID: 633077015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_51
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 54
+        width: 20
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e51c14bee1f3a7c4a9678d86a4dd447c
+      internalID: -748888656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_52
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 49
+        width: 15
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 664ced3ac291b0c4bbc486d5b00583e4
+      internalID: -1721143386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_53
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 49
+        width: 43
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91c82e272ceebdd43b70033018d1db14
+      internalID: -2085030967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_54
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 41
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 002dcd2f5a48e9848a3a38691bf8f992
+      internalID: 2002411652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_55
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 25
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3a8c906e86ff2a4fad7001968d04f6e
+      internalID: 1953177853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_56
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 26
+        width: 14
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe46ceb6284d50d44bdfe3ae908a7ee0
+      internalID: -941578932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_57
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 30
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 406285cee8ea58f44b0ae2d6eb0878aa
+      internalID: 499490224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Expression_58
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 26
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baea3ee8ff7c12244a6205e23a329d71
+      internalID: -1514545401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +1311,66 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Dust: -6498975
+      Expression_1: 1317076771
+      Expression_10: -808570158
+      Expression_11: -293424848
+      Expression_12: -2118267679
+      Expression_13: 598486452
+      Expression_14: 2091728816
+      Expression_15: -540383508
+      Expression_16: 1400151284
+      Expression_17: 2051268040
+      Expression_18: -648821346
+      Expression_19: 1144108234
+      Expression_2: 823978939
+      Expression_20: -1078394505
+      Expression_21: -1188738697
+      Expression_22: -1828816840
+      Expression_23: -1041010451
+      Expression_24: 965130322
+      Expression_25: -1839703427
+      Expression_26: 893215611
+      Expression_28: 733098414
+      Expression_29: 1832515969
+      Expression_3: 1499013740
+      Expression_30: 992330177
+      Expression_31: 222285537
+      Expression_32: -328078401
+      Expression_33: 1288859886
+      Expression_34: -1005796626
+      Expression_35: -1319260741
+      Expression_36: -632746806
+      Expression_37: -385930750
+      Expression_38: 128946902
+      Expression_39: -1843404863
+      Expression_4: 586315639
+      Expression_40: -702086870
+      Expression_41: 1317120576
+      Expression_42: 1809121880
+      Expression_43: 1139995746
+      Expression_44: 1628504447
+      Expression_45: -183428713
+      Expression_46: 2008725011
+      Expression_47: 801844994
+      Expression_48: -414611304
+      Expression_49: 1241094443
+      Expression_5: 573244197
+      Expression_50: 633077015
+      Expression_51: -748888656
+      Expression_52: -1721143386
+      Expression_53: -2085030967
+      Expression_54: 2002411652
+      Expression_55: 1953177853
+      Expression_56: -941578932
+      Expression_57: 499490224
+      Expression_58: -1514545401
+      Expression_6: -932124389
+      Expression_7: -2133183025
+      Expression_8: 1926702976
+      Expression_9: 1613498589
+      Sweat: 110631315
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

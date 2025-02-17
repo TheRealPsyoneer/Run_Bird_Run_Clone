@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bf7dbf457c965846b527d1c7ea7ece4, type: 3}
-  m_Name: Move
+  m_Script: {fileID: 11500000, guid: 59eec8bce7790a84b88c8e349b9d1f7f, type: 3}
+  m_Name: Sweat Factory
   m_EditorClassIdentifier: 
-  state: 1
-  unit: {fileID: 0}
-  sweatInterval: 0.125
-  dustInterval: 0.1
+  product: {fileID: 664650436367936765, guid: 657cbce703e0d88409d2d07f31bb5986, type: 3}
+  poolCapacity: 2

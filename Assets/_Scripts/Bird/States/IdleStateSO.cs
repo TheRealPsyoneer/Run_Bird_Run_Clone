@@ -12,11 +12,11 @@ public class IdleStateSO : StateNode
     {
         bird = (Bird)unit;
 
-        float curBirdRotation = bird.sprite.transform.rotation.z;
+        float curBirdRotation = bird.children[1].transform.rotation.z;
         if (curBirdRotation != 0)
         {
-            bird.sprite.transform.DOKill();
-            bird.sprite.transform.DOLocalRotate(Vector3.zero, curBirdRotation * rotatePerDegreeTime).SetEase(Ease.Linear);
+            bird.children[1].transform.DOKill();
+            bird.children[1].transform.DOLocalRotate(Vector3.zero, curBirdRotation * rotatePerDegreeTime).SetEase(Ease.Linear);
         }
     }
 

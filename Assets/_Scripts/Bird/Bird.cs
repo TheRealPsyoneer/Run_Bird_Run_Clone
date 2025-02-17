@@ -21,20 +21,29 @@ public class Bird : Unit
     public Vector2 primaryDirection { get; set; }
     public Rigidbody2D rb { get; set; }
     public Collider2D col { get; set; }
+    public Animator animator { get; set; }
     public bool isTouchingGround;
     public bool isMoving { get; set; }
     public bool isMovingRight;
 
     public float rbGravityScale;
 
-    public SpriteRenderer sprite;
+    public EventSO dieEvent;
+
+    public Transform[] children { get; set; }
+
+    public BirdExpression expression { get; set; }
+    public Transform sweat;
+    public Transform sweat2;
 
     protected override void Awake()
     {
         base.Awake();
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
-        sprite = GetComponentInChildren<SpriteRenderer>();
+        expression = GetComponent<BirdExpression>();
+        children = GetComponentsInChildren<Transform>();
+        animator = GetComponentInChildren<Animator>();
         direction = Vector2.right;
         directionIndex = 1;
         curSpeed = 0;
@@ -78,8 +87,7 @@ public class Bird : Unit
         
         if (collision.gameObject.CompareTag("Box") && Mathf.Abs(hitDir) < 40f && isTouchingGround)
         {
-            transform.DOScaleY(0, BoxBehaviour.FallTimePerCell);
-        
+            stateMachine.TransitionTo(stateStorage[State.Die]);
         }
         if (collision.gameObject.CompareTag("Box") && theBox != null && theBox.isClimbable)
         {
@@ -95,8 +103,8 @@ public class Bird : Unit
                     if (!isMovingRight)
                     {
                         //isClimbing = true;
-                        sprite.transform.DOKill();
-                        sprite.transform.DOLocalRotate(new Vector3(0, 0, 90), rotateTime);
+                        children[1].transform.DOKill();
+                        children[1].transform.DOLocalRotate(new Vector3(0, 0, 90), rotateTime);
                         directions = contactLeftDirections;
                     }
                     else
@@ -108,8 +116,8 @@ public class Bird : Unit
                 else
                 {
                     //isClimbing = true;
-                    sprite.transform.DOKill();
-                    sprite.transform.DOLocalRotate(new Vector3(0, 0, 90), rotateTime);
+                    children[1].transform.DOKill();
+                    children[1].transform.DOLocalRotate(new Vector3(0, 0, 90), rotateTime);
                     directions = contactLeftDirections;
                 }
 
@@ -130,8 +138,8 @@ public class Bird : Unit
                     if (isMovingRight)
                     {
                         //isClimbing = true;
-                        sprite.transform.DOKill();
-                        sprite.transform.DOLocalRotate(new Vector3(0, 0, 90), rotateTime);
+                        children[1].transform.DOKill();
+                        children[1].transform.DOLocalRotate(new Vector3(0, 0, 90), rotateTime);
                         directions = contactRightDirections;
                     }
                     else
@@ -143,8 +151,8 @@ public class Bird : Unit
                 else
                 {
                     //isClimbing = true;
-                    sprite.transform.DOKill();
-                    sprite.transform.DOLocalRotate(new Vector3(0, 0, 90), rotateTime);
+                    children[1].transform.DOKill();
+                    children[1].transform.DOLocalRotate(new Vector3(0, 0, 90), rotateTime);
                     directions = contactRightDirections;
                 }
 
@@ -190,7 +198,7 @@ public class Bird : Unit
             {
                 rb.gravityScale = rbGravityScale;
 
-                sprite.transform.DOLocalRotate(Vector3.zero, rotateTime * 0.5f).SetEase(Ease.Linear);
+                children[1].transform.DOLocalRotate(Vector3.zero, rotateTime * 0.5f).SetEase(Ease.Linear);
 
                 directions = normalDirections;
                 
