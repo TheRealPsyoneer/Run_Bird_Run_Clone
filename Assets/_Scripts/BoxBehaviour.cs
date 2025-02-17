@@ -12,10 +12,12 @@ public class BoxBehaviour : MonoBehaviour, IFactoryProduct
     public Vector2Int targetFallCell { get; set; }
     [SerializeField] EventSO boxFallCompleteEvent;
     public bool isInColumnLowestQuantity;
+    public bool isClimbable;
     public void Initialize()
     {
         gameObject.SetActive(true);
         FallTimePerCell = fallTimePerCell;
+        isClimbable = false;
     }
 
     public void Falling()
@@ -25,7 +27,13 @@ public class BoxBehaviour : MonoBehaviour, IFactoryProduct
         transform.DOKill();
         transform.DOMove(targetPosition, (Mathf.Abs(startCellPosition.y - targetFallCell.y)) * fallTimePerCell)
             .SetEase(Ease.Linear)
-            .OnComplete(() => boxFallCompleteEvent.Broadcast(this));
+            .OnComplete(WhenComplete);
+    }
+
+    void WhenComplete()
+    {
+        boxFallCompleteEvent.Broadcast(this);
+        isClimbable = true;
     }
 
     private void OnDisable()

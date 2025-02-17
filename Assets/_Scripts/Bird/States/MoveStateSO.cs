@@ -25,6 +25,7 @@ public class MoveStateSO : StateNode
         //}
 
         bird.direction = bird.directions[bird.directionIndex];
+
         if (bird.curSpeed < 0.1f 
             || (bird.direction == Vector2.left && bird.transform.position.x < boundLeftX) 
             || (bird.direction == Vector2.right && bird.transform.position.x > boundRightX))
@@ -33,13 +34,9 @@ public class MoveStateSO : StateNode
             return;
         }
 
-        //if (!bird.isTouchingGround && (bird.curSpeed == 0 || !bird.isClimbing))
-        //{
-        //    bird.stateMachine.TransitionTo(bird.stateStorage[State.Fall]);
-        //    return;
-        //}
-
         
+
+
         if (bird.direction == Vector2.up)
         {
             bird.transform.Translate(bird.direction * Time.deltaTime * 1f * bird.curSpeed);

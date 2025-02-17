@@ -7,9 +7,8 @@ using DG.Tweening;
 public class Bird : Unit
 {
     [SerializeField] float maxSpeed;
-    public float curSpeed { get; set; }
-    [SerializeField] float maxRotateSpeed;
-    public float curRotateSpeed { get; set; }
+    public float curSpeed;
+    [SerializeField] float rotateTime;
     [HideInInspector]
     public Vector2[] directions = new Vector2[2] { Vector2.left, Vector2.right };
     [HideInInspector]
@@ -28,18 +27,17 @@ public class Bird : Unit
 
     public float rbGravityScale;
 
-    public bool isClimbing;
+    public SpriteRenderer sprite;
 
     protected override void Awake()
     {
         base.Awake();
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
+        sprite = GetComponentInChildren<SpriteRenderer>();
         direction = Vector2.right;
         directionIndex = 1;
         curSpeed = 0;
-        curRotateSpeed = 0;
-        isClimbing = false;
     }
 
     public void MoveLeft()
@@ -70,38 +68,48 @@ public class Bird : Unit
     {
         isMoving = false;
         curSpeed = 0;
-        curRotateSpeed = 0;
+        rb.gravityScale = rbGravityScale;
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Box"))
+        BoxBehaviour theBox = collision.gameObject.GetComponent<BoxBehaviour>();
+        float hitDir = Vector2.SignedAngle(Vector2.up, (Vector2)(collision.gameObject.transform.position - (transform.position + (Vector3)col.offset)));
+        
+        if (collision.gameObject.CompareTag("Box") && Mathf.Abs(hitDir) < 40f && isTouchingGround)
         {
-            float hitDir = Vector2.SignedAngle(Vector2.up, (Vector2)(collision.gameObject.transform.position - (transform.position + (Vector3)col.offset)));
+            transform.DOScaleY(0, BoxBehaviour.FallTimePerCell);
+        
+        }
+        if (collision.gameObject.CompareTag("Box") && theBox != null && theBox.isClimbable)
+        {
+            
             //Debug.Log(hitDir);
-            if (Mathf.Abs(hitDir) < 35f && isTouchingGround)
-            {
-                transform.DOScaleY(0, BoxBehaviour.FallTimePerCell);
-            }
+            
 
-            else if (hitDir >= 35f && hitDir < 135f)
+            if (hitDir >= 40f && hitDir < 145f && stateMachine.currentState.state == State.Move)
             {
                 if (isTouchingGround)
                 {
+                    
                     if (!isMovingRight)
                     {
-                        isClimbing = true;
+                        //isClimbing = true;
+                        sprite.transform.DOKill();
+                        sprite.transform.DOLocalRotate(new Vector3(0, 0, 90), rotateTime);
                         directions = contactLeftDirections;
                     }
                     else
                     {
-                        isClimbing = false;
+                        //isClimbing = false;
                         directions = normalDirections;
                     }
                 }
                 else
                 {
-                    isClimbing = true;
+                    //isClimbing = true;
+                    sprite.transform.DOKill();
+                    sprite.transform.DOLocalRotate(new Vector3(0, 0, 90), rotateTime);
                     directions = contactLeftDirections;
                 }
 
@@ -115,24 +123,28 @@ public class Bird : Unit
                     rb.gravityScale = rbGravityScale;
                 }
             }
-            else if (hitDir <= -35f && hitDir > -135f)
+            else if (hitDir <= -40f && hitDir > -145f && stateMachine.currentState.state == State.Move)
             {
                 if (isTouchingGround)
                 {
                     if (isMovingRight)
                     {
-                        isClimbing = true;
+                        //isClimbing = true;
+                        sprite.transform.DOKill();
+                        sprite.transform.DOLocalRotate(new Vector3(0, 0, 90), rotateTime);
                         directions = contactRightDirections;
                     }
                     else
                     {
-                        isClimbing = false;
+                        //isClimbing = false;
                         directions = normalDirections;
                     }
                 }
                 else
                 {
-                    isClimbing = true;
+                    //isClimbing = true;
+                    sprite.transform.DOKill();
+                    sprite.transform.DOLocalRotate(new Vector3(0, 0, 90), rotateTime);
                     directions = contactRightDirections;
                 }
 
@@ -146,16 +158,22 @@ public class Bird : Unit
                     rb.gravityScale = rbGravityScale;
                 }
             }
-            else if(Mathf.Abs(hitDir) >= 135f && Mathf.Abs(hitDir) < 155f)
-            {
-                isClimbing = true;
-                directions = normalDirections;
-            }
+            //else if(Mathf.Abs(hitDir) >= 135f && Mathf.Abs(hitDir) < 155f)
+            //{
+            //    //isClimbing = true;
+            //    directions = normalDirections;
+            //}
+            //else if (Mathf.Abs(hitDir) >= 145f && Mathf.Abs(hitDir) < 155f)
+            //{
+            //    rb.velocity = directions[directionIndex]*2;
+            //}
 
-            else if (Mathf.Abs(hitDir) >= 155f)
+            else if (Mathf.Abs(hitDir) >= 145f)
             {
-                isClimbing = false;
+                //isClimbing = false;
+                //directions = normalDirections;
                 isTouchingGround = true;
+                rb.gravityScale = rbGravityScale;
             }
         }
     }
@@ -164,14 +182,53 @@ public class Bird : Unit
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Box") && !isClimbing)
+        BoxBehaviour theBox = collision.gameObject.GetComponent<BoxBehaviour>();
+        if (collision.gameObject.CompareTag("Box") && theBox != null && theBox.isClimbable)
         {
-            rb.gravityScale = rbGravityScale;
-            directions = normalDirections;
+            
+            if (!col.IsTouchingLayers(LayerMask.GetMask("Box")))
+            {
+                rb.gravityScale = rbGravityScale;
 
-            isTouchingGround = false;
+                sprite.transform.DOLocalRotate(Vector3.zero, rotateTime * 0.5f).SetEase(Ease.Linear);
 
-            stateMachine.TransitionTo(stateStorage[State.Fall]);
+                directions = normalDirections;
+                
+                rb.AddForce(directions[directionIndex]*3, ForceMode2D.Impulse);
+
+                isTouchingGround = false;
+
+                stateMachine.TransitionTo(stateStorage[State.Idle]);
+            }
+
+            else
+            {
+                float hitDir = Vector2.SignedAngle(Vector2.up, (Vector2)(collision.gameObject.transform.position - (transform.position + (Vector3)col.offset)));
+                if (Mathf.Abs(hitDir) >= 125f)
+                {
+                    //isClimbing = false;
+                    //directions = normalDirections;
+                    isTouchingGround = false;
+                }
+            }
+
+            //if (!isTouchingGround && !col.IsTouchingLayers(LayerMask.GetMask("Box")))
+            //{
+            //    rb.gravityScale = rbGravityScale;
+
+
+            //    directions = normalDirections;
+                
+            //    rb.AddForce(directions[directionIndex]*2, ForceMode2D.Impulse);
+
+            //    //isTouchingGround = false;
+
+            //    stateMachine.TransitionTo(stateStorage[State.Idle]);
+            //}
+            //else if (isTouchingGround && col.IsTouchingLayers(LayerMask.GetMask("Box")))
+            //{
+            //    isTouchingGround = false;
+            //}
         }
     }
 }

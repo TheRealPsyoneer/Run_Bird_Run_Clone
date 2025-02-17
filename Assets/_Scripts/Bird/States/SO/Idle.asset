@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Idle
   m_EditorClassIdentifier: 
   state: 0
+  unit: {fileID: 0}
+  rotatePerDegreeTime: 0.1

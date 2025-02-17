@@ -15,12 +15,12 @@ public class Unit : MonoBehaviour
         {
             stateStorage[stateNode.state] = stateNode;
         }
-        stateMachine = new(this, stateStorage[State.Idle]);
+        
     }
 
     protected virtual void Start()
     {
-        
+        stateMachine = new(this, stateStorage[State.Idle]);
     }
 
     protected virtual void FixedUpdate()
