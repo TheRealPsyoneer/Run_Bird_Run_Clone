@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
-public class Warning : MonoBehaviour, IFactoryProduct
+public class Warning : MonoBehaviour
 {
-    public Stack<IFactoryProduct> pool { get; set; }
     [SerializeField] float showInterval;
     [SerializeField] float liveTime;
     [SerializeField] GameObject warningLine;
@@ -16,19 +15,18 @@ public class Warning : MonoBehaviour, IFactoryProduct
     {
         sprite = GetComponent<SpriteRenderer>();
         lineSprite = warningLine.GetComponent<SpriteRenderer>();
-        lineSprite.color = Color.white;
+        
     }
 
-    public void Initialize()
+    private void OnEnable()
     {
-        gameObject.SetActive(true);
-        lineSprite.DOColor(new Color(1, 1, 1, 0), liveTime).SetEase(Ease.Linear);
+        lineSprite.color = Color.white;
+        lineSprite.DOColor(new Color(1, 1, 1, 0), liveTime).SetEase(Ease.InExpo);
 
-        StartCoroutine(SelfActivate());
-        while (true)
-        {
-            StartCoroutine(Anim());
-        }
+        sprite.color = Color.white;
+        sprite.DOColor(new Color(1, 1, 1, 0), liveTime).SetEase(Ease.InExpo);
+
+        StartCoroutine(Anim());
     }
 
     IEnumerator Anim()
@@ -36,22 +34,13 @@ public class Warning : MonoBehaviour, IFactoryProduct
         sprite.enabled = true;
         yield return new WaitForSeconds(showInterval);
         sprite.enabled = false;
-        yield return new WaitForSeconds(liveTime);
-    }
-
-    IEnumerator SelfActivate()
-    {
-        yield return new WaitForSeconds(liveTime);
+        yield return new WaitForSeconds(showInterval);
+        sprite.enabled = true;
+        yield return new WaitForSeconds(showInterval);
+        sprite.enabled = false;
+        yield return new WaitForSeconds(showInterval); 
+        sprite.enabled = true;
+        yield return new WaitForSeconds(showInterval);
         gameObject.SetActive(false);
-    }
-
-    private void OnDisable()
-    {
-        ReturnToPool();
-    }
-
-    public void ReturnToPool()
-    {
-        pool.Push(this);
     }
 }
