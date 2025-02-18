@@ -1,0 +1,25 @@
+{
+  "translation_texts": 
+  [
+    {
+      "text_key": "TermsTitle",
+      "translated_text": "Legal terms and privacy"
+    },
+    {
+      "text_key": "AgeGateText",
+      "translated_text": "Before playing, please set your age below:"
+    },
+    {
+      "text_key": "TermsChildText",
+      "translated_text": "By confirming, you:\n\n1) agree that you have read our <link=\"PrivacyPolicy\"><color=#40a0ff>[Privacy Policy]</color></link> and accept our <link=\"LegalDocument\"><color=#40a0ff>[Legal Docs]</color></link>.\n\n2) consent to our use of cookies for necessary features such as improving the game experience or handling issues, fraud, and online payments."
+    },
+    {
+      "text_key": "TermsAcceptButton",
+      "translated_text": "Confirm all"
+    },
+    {
+      "text_key": "AgeGateContinueButton",
+      "translated_text": "Continue"
+    }
+  ]
+}

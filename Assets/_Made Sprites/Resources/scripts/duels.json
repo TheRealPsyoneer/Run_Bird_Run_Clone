@@ -1,0 +1,724 @@
+{
+  "duels": [
+    {
+      "reward": 5,
+      "startLevel": 0,
+      "iaStrength": -10,
+      "bird": {
+        "img": "vert",
+        "stars": 1,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 5,
+      "startLevel": 0,
+      "iaStrength": -5,
+      "bird": {
+        "img": "blue",
+        "stars": 1,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 5,
+      "startLevel": 0,
+      "iaStrength": 0,
+      "bird": {
+        "img": "magenta",
+        "stars": 1,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 5,
+      "startLevel": 0,
+      "iaStrength": 3,
+      "bird": {
+        "img": "rondbleu",
+        "stars": 1,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 5,
+      "startLevel": 0,
+      "iaStrength": 3,
+      "bird": {
+        "img": "whiteninja",
+        "stars": 1,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 10,
+      "startLevel": 0,
+      "iaStrength": 4,
+      "bird": {
+        "img": "ninja",
+        "stars": 1,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 10,
+      "startLevel": 0,
+      "iaStrength": 4,
+      "bird": {
+        "img": "perro3",
+        "stars": 1,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 10,
+      "startLevel": 0,
+      "iaStrength": 5,
+      "bird": {
+        "img": "rondvert",
+        "stars": 1,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 10,
+      "startLevel": 0,
+      "iaStrength": 5,
+      "bird": {
+        "img": "rondmarron",
+        "stars": 1,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 10,
+      "startLevel": 0,
+      "iaStrength": 6,
+      "bird": {
+        "img": "zarbi",
+        "stars": 1,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 20,
+      "startLevel": 0,
+      "iaStrength": 7,
+      "bird": {
+        "img": "lightpink",
+        "stars": 2,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 20,
+      "startLevel": 0,
+      "iaStrength": 7,
+      "bird": {
+        "img": "perro1",
+        "stars": 2,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 20,
+      "startLevel": 0,
+      "iaStrength": 8,
+      "bird": {
+        "img": "pingublack",
+        "stars": 2,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 20,
+      "startLevel": 0,
+      "iaStrength": 8,
+      "bird": {
+        "img": "rondcasquette",
+        "stars": 2,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 20,
+      "startLevel": 0,
+      "iaStrength": 9,
+      "bird": {
+        "img": "frank",
+        "stars": 2,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 30,
+      "startLevel": 0,
+      "iaStrength": 9,
+      "bird": {
+        "img": "frank2",
+        "stars": 2,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 30,
+      "startLevel": 0,
+      "iaStrength": 10,
+      "bird": {
+        "img": "gris",
+        "stars": 2,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 30,
+      "startLevel": 0,
+      "iaStrength": 10,
+      "bird": {
+        "img": "rondviolet",
+        "stars": 2,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 30,
+      "startLevel": 0,
+      "iaStrength": 10,
+      "bird": {
+        "img": "new5",
+        "stars": 2,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 30,
+      "startLevel": 0,
+      "iaStrength": 10,
+      "bird": {
+        "img": "yellow",
+        "stars": 2,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 50,
+      "startLevel": 0,
+      "iaStrength": 11,
+      "bird": {
+        "img": "orangebois",
+        "stars": 3,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 50,
+      "startLevel": 0,
+      "iaStrength": 12,
+      "bird": {
+        "img": "perro2",
+        "stars": 3,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 50,
+      "startLevel": 0,
+      "iaStrength": 13,
+      "bird": {
+        "img": "pingublue",
+        "stars": 3,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 50,
+      "startLevel": 0,
+      "iaStrength": 14,
+      "bird": {
+        "img": "new10",
+        "stars": 3,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 50,
+      "startLevel": 0,
+      "iaStrength": 15,
+      "bird": {
+        "img": "mecano",
+        "stars": 3,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 75,
+      "startLevel": 0,
+      "iaStrength": 15,
+      "bird": {
+        "img": "chiro",
+        "stars": 3,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 75,
+      "startLevel": 0,
+      "iaStrength": 16,
+      "bird": {
+        "img": "pinkperro",
+        "stars": 3,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 75,
+      "startLevel": 0,
+      "iaStrength": 17,
+      "bird": {
+        "img": "drake",
+        "stars": 3,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 75,
+      "startLevel": 0,
+      "iaStrength": 18,
+      "bird": {
+        "img": "rondbiker",
+        "stars": 3,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 75,
+      "startLevel": 0,
+      "iaStrength": 19,
+      "bird": {
+        "img": "hipster",
+        "stars": 3,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 100,
+      "startLevel": 0,
+      "iaStrength": 20,
+      "bird": {
+        "img": "goldstar",
+        "stars": 4,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 100,
+      "startLevel": 0,
+      "iaStrength": 21,
+      "bird": {
+        "img": "greenguy",
+        "stars": 4,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 100,
+      "startLevel": 0,
+      "iaStrength": 22,
+      "bird": {
+        "img": "new9",
+        "stars": 4,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 100,
+      "startLevel": 0,
+      "iaStrength": 23,
+      "bird": {
+        "img": "darkblue",
+        "stars": 4,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 100,
+      "startLevel": 0,
+      "iaStrength": 24,
+      "bird": {
+        "img": "new4",
+        "stars": 4,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 125,
+      "startLevel": 0,
+      "iaStrength": 25,
+      "bird": {
+        "img": "lightblue",
+        "stars": 4,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 125,
+      "startLevel": 0,
+      "iaStrength": 26,
+      "bird": {
+        "img": "new7",
+        "stars": 4,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 125,
+      "startLevel": 0,
+      "iaStrength": 27,
+      "bird": {
+        "img": "new6",
+        "stars": 4,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 125,
+      "startLevel": 0,
+      "iaStrength": 28,
+      "bird": {
+        "img": "new8",
+        "stars": 4,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 125,
+      "startLevel": 0,
+      "iaStrength": 29,
+      "bird": {
+        "img": "pink",
+        "stars": 4,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 150,
+      "startLevel": 0,
+      "iaStrength": 30,
+      "bird": {
+        "img": "loverblue",
+        "stars": 5,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 150,
+      "startLevel": 0,
+      "iaStrength": 31,
+      "bird": {
+        "img": "drakegreen",
+        "stars": 5,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 150,
+      "startLevel": 0,
+      "iaStrength": 32,
+      "bird": {
+        "img": "darkorange",
+        "stars": 5,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 150,
+      "startLevel": 0,
+      "iaStrength": 33,
+      "bird": {
+        "img": "loverpink",
+        "stars": 5,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 150,
+      "startLevel": 0,
+      "iaStrength": 34,
+      "bird": {
+        "img": "pikachu",
+        "stars": 5,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 200,
+      "startLevel": 0,
+      "iaStrength": 35,
+      "bird": {
+        "img": "bro",
+        "stars": 5,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 200,
+      "startLevel": 0,
+      "iaStrength": 36,
+      "bird": {
+        "img": "new2",
+        "stars": 5,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 200,
+      "startLevel": 0,
+      "iaStrength": 37,
+      "bird": {
+        "img": "batman",
+        "stars": 5,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 200,
+      "startLevel": 0,
+      "iaStrength": 37,
+      "bird": {
+        "img": "new1",
+        "stars": 5,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 250,
+      "startLevel": 0,
+      "iaStrength": 37,
+      "bird": {
+        "img": "new3",
+        "stars": 5,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 250,
+      "startLevel": 0,
+      "iaStrength": 37,
+      "bird": {
+        "img": "ch19",
+        "stars": 5,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 250,
+      "startLevel": 0,
+      "iaStrength": 37,
+      "bird": {
+        "img": "ch20",
+        "stars": 5,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 250,
+      "startLevel": 0,
+      "iaStrength": 37,
+      "bird": {
+        "img": "ch17",
+        "stars": 5,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 250,
+      "startLevel": 0,
+      "iaStrength": 37,
+      "bird": {
+        "img": "ch16",
+        "stars": 5,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 250,
+      "startLevel": 0,
+      "iaStrength": 37,
+      "bird": {
+        "img": "ch15",
+        "stars": 5,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 250,
+      "startLevel": 0,
+      "iaStrength": 38,
+      "bird": {
+        "img": "ch14",
+        "stars": 5,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 250,
+      "startLevel": 0,
+      "iaStrength": 38,
+      "bird": {
+        "img": "ch13",
+        "stars": 5,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 250,
+      "startLevel": 0,
+      "iaStrength": 39,
+      "bird": {
+        "img": "ch12",
+        "stars": 5,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 250,
+      "startLevel": 0,
+      "iaStrength": 39,
+      "bird": {
+        "img": "ch11",
+        "stars": 5,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    },
+    {
+      "reward": 300,
+      "startLevel": 0,
+      "iaStrength": 40,
+      "bird": {
+        "img": "ch18",
+        "stars": 5,
+        "gravity": 2.7,
+        "speed": 0.6,
+        "jumpSpeed": 1
+      }
+    }
+  ]
+}

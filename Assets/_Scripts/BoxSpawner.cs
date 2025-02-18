@@ -8,7 +8,6 @@ public class BoxSpawner : MonoBehaviour
 {
     public static BoxSpawner Instance;
     public int spawnPositionY { get; set; }
-    public float spawnInterval;
 
     [SerializeField] MyFactorySO boxFactory;
     public int maxSameTimeBoxFall;
@@ -17,10 +16,10 @@ public class BoxSpawner : MonoBehaviour
     int columnHighestQuantity, columnLowestQuantity;
     [SerializeField] int maxColumnQuantityDifference;
 
-    float lastSpawnTime;
     int currentLowestRow;
     [SerializeField] List<int> boxDir;
     [SerializeField] EventSO boxFallCompleteEvent;
+    [SerializeField] EventSO cameraPositionChangeEvent;
     public Dictionary<BoxBehaviour, int> boxColumnNumber = new();
     int curWaveColumnLowestQuantity;
     bool lastWaveDropDone;
@@ -32,7 +31,6 @@ public class BoxSpawner : MonoBehaviour
 
     void Start()
     {
-        lastSpawnTime = Time.time;
         boxFactory.Initialize();
         spawnPositionY = WorldGrid.Instance.GetWorldToCellPosition(transform.position).y;
 
@@ -64,7 +62,7 @@ public class BoxSpawner : MonoBehaviour
 
     void Update()
     {
-        if (Time.time - lastSpawnTime > spawnInterval && lastWaveDropDone)
+        if (lastWaveDropDone)
         {
             int randomSameTimeBoxFall = Random.Range(1, maxSameTimeBoxFall + 1);
             HashSet<int> columns = new();
@@ -72,8 +70,6 @@ public class BoxSpawner : MonoBehaviour
 
             List<int> fallColumns = GetFallColumns(columns, randomSameTimeBoxFall);
             StartCoroutine(SpawnBox(fallColumns));
-
-            lastSpawnTime = Time.time;
         }
     }
 
@@ -196,7 +192,7 @@ public class BoxSpawner : MonoBehaviour
                 currentLowestRow++;
                 columnLowestQuantity++;
                 spawnPositionY++;
-                Camera.main.transform.DOMoveY(Camera.main.transform.position.y + WorldGrid.Instance.CelValue, 1);
+                cameraPositionChangeEvent.Broadcast();
             }
 
             if (colummBoxQuantity[boxColumnNumber[box]] > columnHighestQuantity)

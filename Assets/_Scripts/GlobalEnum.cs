@@ -11,3 +11,8 @@ public enum State
 {
     Idle, Move, Die, Sleep, Rotate, Fall
 }
+
+public enum GameState
+{
+    MainMenu, Playing, Pause
+}

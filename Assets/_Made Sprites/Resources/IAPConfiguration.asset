@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1502315007, guid: 7a4be55087f06bf10246e5ce90f5db00, type: 3}
+  m_Name: IAPConfiguration
+  m_EditorClassIdentifier:
+  Products:
+  - ProductId: dtts_iap_noadstest
+    ProductIdAndroid:
+    ProductName: dtts_iap_noadstest
+    Type: 1
+    Price: 0
+    IsNoAds: 1
+    IsLateConsuming: 0
+  - ProductId: dtts_iap_candy_1000
+    ProductIdAndroid:
+    ProductName: dtts_iap_candy_1000
+    Type: 0
+    Price: 0
+    IsNoAds: 0
+    IsLateConsuming: 0
+  - ProductId: dtts_iap_candy_3000
+    ProductIdAndroid:
+    ProductName: dtts_iap_candy_3000
+    Type: 0
+    Price: 0
+    IsNoAds: 0
+    IsLateConsuming: 0
+  - ProductId: dtts_iap_candy_400
+    ProductIdAndroid:
+    ProductName: dtts_iap_candy_400
+    Type: 0
+    Price: 0
+    IsNoAds: 0
+    IsLateConsuming: 0
+  - ProductId: dtts_iap_candy_5000
+    ProductIdAndroid:
+    ProductName: dtts_iap_candy_5000
+    Type: 0
+    Price: 0
+    IsNoAds: 0
+    IsLateConsuming: 0

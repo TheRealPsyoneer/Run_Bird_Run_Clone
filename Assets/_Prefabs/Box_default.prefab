@@ -362,7 +362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95dbf7fa175f5494a88eb96ced9983d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallTimePerCell: 0.2
+  fallTimePerCell: 0.1
   boxFallCompleteEvent: {fileID: 11400000, guid: 4668f083eb14394489ff45991abc281d, type: 2}
   isInColumnLowestQuantity: 0
-  isClimbable: 0
+  isClimbable: 1
