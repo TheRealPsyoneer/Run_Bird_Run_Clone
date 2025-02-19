@@ -36,6 +36,7 @@ public class BoxSpawner : MonoBehaviour
 
         lastWaveDropDone = true;
         SetUpColumn();
+        SpawnRandomBoxes();
     }
 
     private void OnEnable()
@@ -58,6 +59,49 @@ public class BoxSpawner : MonoBehaviour
         columnHighestQuantity = 0;
         columnLowestQuantity = 0;
         currentLowestRow = 0;
+    }
+
+    void SpawnRandomBoxes()
+    {
+        for (int i=0; i<colummBoxQuantity.Count; i++)
+        {
+            int randomBoxes = Random.Range(0, 3);
+            for (int j=0; j<randomBoxes; j++)
+            {
+                BoxBehaviour box = (BoxBehaviour)boxFactory.GetProduct();
+                box.isClimbable = true;
+                box.transform.position = WorldGrid.Instance.GetCellToWorldPosition(new Vector2Int(i, j));
+                colummBoxQuantity[i]++;
+            }
+        }
+
+        int time = 1;
+        while (time <= 2)
+        {
+            int count = 0;
+            for (int i = 0; i < WorldGrid.Instance.boundCellX; i++)
+            {
+                if (colummBoxQuantity[i] > columnLowestQuantity)
+                {
+                    count++;
+                }
+
+                if (count == WorldGrid.Instance.boundCellX)
+                {
+                    currentLowestRow++;
+                    columnLowestQuantity++;
+                    spawnPositionY++;
+                    cameraPositionChangeEvent.Broadcast();
+                }
+
+                if (colummBoxQuantity[i] > columnHighestQuantity)
+                {
+                    columnHighestQuantity = colummBoxQuantity[i];
+                }
+            }
+            time++;
+        }
+        
     }
 
     void Update()

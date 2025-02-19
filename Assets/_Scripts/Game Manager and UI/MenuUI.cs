@@ -32,7 +32,7 @@ public class MenuUI : MonoBehaviour
     private void OnDisable()
     {
         gameStartEvent.ThingHappened -= HideMenu;
-        gameStartEvent.ThingHappened += ShowScore;
+        gameStartEvent.ThingHappened -= ShowScore;
         scoreChangeEvent.ThingHappened -= ChangeScoreText;
         birdDieEvent.ThingHappened -= HideScore;
         birdDieEvent.ThingHappened -= ShowText;
@@ -73,6 +73,9 @@ public class MenuUI : MonoBehaviour
 
     void ShowText()
     {
+        candy.text = $"{playerData.candy}";
+        bestScore.text = $"BEST SCORE: {playerData.bestScore}";
+        gamesPlayed.text = $"GAMES PLAYED: {playerData.gamesPlayed}";
         textGroup.DOFade(1, 1).SetUpdate(true);
     }
 

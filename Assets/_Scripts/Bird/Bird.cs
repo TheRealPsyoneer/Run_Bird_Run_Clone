@@ -111,7 +111,7 @@ public class Bird : Unit
             //Debug.Log(hitDir);
             
 
-            if (hitDir >= 40f && hitDir < 145f && stateMachine.currentState.state == State.Move)
+            if (hitDir >= 40f && hitDir < 150f && stateMachine.currentState.state == State.Move)
             {
                 if (isTouchingGround)
                 {
@@ -147,7 +147,7 @@ public class Bird : Unit
                     rb.gravityScale = rbGravityScale;
                 }
             }
-            else if (hitDir <= -40f && hitDir > -145f && stateMachine.currentState.state == State.Move)
+            else if (hitDir <= -40f && hitDir > -150f && stateMachine.currentState.state == State.Move)
             {
                 if (isTouchingGround)
                 {

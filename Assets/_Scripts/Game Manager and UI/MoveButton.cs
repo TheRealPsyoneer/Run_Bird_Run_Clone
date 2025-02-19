@@ -41,6 +41,6 @@ public class MoveButton : MonoBehaviour
 
     void TurnOff()
     {
-        canvas.DOFade(0,1).SetUpdate(true);
+        canvas.DOFade(0,1).SetUpdate(true).OnComplete(() => gameObject.SetActive(false));
     }
 }

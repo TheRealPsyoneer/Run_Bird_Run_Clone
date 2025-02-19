@@ -36,9 +36,7 @@ public class MoveStateSO : StateNode
     {
         bird.direction = bird.directions[bird.directionIndex];
 
-        if (bird.curSpeed < 0.1f 
-            || (bird.direction == Vector2.left && bird.transform.position.x <= boundLeftX) 
-            || (bird.direction == Vector2.right && bird.transform.position.x >= boundRightX))
+        if (bird.curSpeed < 0.1f)
         {
             bird.stateMachine.TransitionTo(bird.stateStorage[State.Idle]);
             return;
@@ -64,12 +62,22 @@ public class MoveStateSO : StateNode
         {
             bird.transform.Translate(bird.direction * Time.deltaTime * bird.curSpeed);
         }
+
+        if (bird.transform.position.x <= boundLeftX)
+        {
+            bird.transform.position = new Vector3(boundLeftX, bird.transform.position.y, bird.transform.position.z);
+        }
+        if (bird.transform.position.x >= boundRightX)
+        {
+            bird.transform.position = new Vector3(boundRightX, bird.transform.position.y, bird.transform.position.z);
+        }
+
         //bird.rb.velocity = bird.direction * bird.curSpeed;
         //if (bird.curRotateSpeed != 0)
         //{
         //    bird.stateMachine.TransitionTo(bird.stateStorage[State.Rotate]);
         //}
-        
+
     }
 
     public override void Exit()
