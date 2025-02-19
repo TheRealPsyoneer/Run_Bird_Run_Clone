@@ -23,13 +23,13 @@ public class DustProduct : MonoBehaviour, IFactoryProduct
         transform.localScale = new Vector3(initSize, initSize, initSize);
 
         Sequence scaleSequence = DOTween.Sequence();
-        scaleSequence.Append(transform.DOScale(initSize, 0.1f));
-        scaleSequence.Append(transform.DOScale(0, liveTime));
+        scaleSequence.Append(transform.DOScale(initSize, 0.1f)).SetUpdate(true);
+        scaleSequence.Append(transform.DOScale(0, liveTime).SetUpdate(true));
         
 
         Sequence sequence = DOTween.Sequence();
-        sequence.Append(sprite.DOColor(Color.white, 0.1f));
-        sequence.Append(sprite.DOColor(new Color(1, 1, 1, 0), liveTime).OnComplete(() => gameObject.SetActive(false)));
+        sequence.Append(sprite.DOColor(Color.white, 0.1f).SetUpdate(true));
+        sequence.Append(sprite.DOColor(new Color(1, 1, 1, 0), liveTime).SetUpdate(true).OnComplete(() => gameObject.SetActive(false)));
     }
 
     private void OnDisable()

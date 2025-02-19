@@ -62,7 +62,7 @@ public class BoxSpawner : MonoBehaviour
 
     void Update()
     {
-        if (lastWaveDropDone)
+        if (lastWaveDropDone && GameManager.Instance.gameState == GameState.Playing)
         {
             int randomSameTimeBoxFall = Random.Range(1, maxSameTimeBoxFall + 1);
             HashSet<int> columns = new();

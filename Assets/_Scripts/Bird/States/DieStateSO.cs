@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 [CreateAssetMenu(fileName = "Die", menuName = "Bird/States SO/Die SO")]
 public class DieStateSO : StateNode
@@ -12,16 +11,22 @@ public class DieStateSO : StateNode
     {
         bird = (Bird)unit;
 
-        bird.transform.DOScaleY(0, BoxBehaviour.FallTimePerCell)
-            .OnComplete(() => bird.gameObject.SetActive(false));
+        bird.transform.DOScaleY(0, BoxBehaviour.FallTimePerCell).SetUpdate(true)
+            .OnComplete(BirdDie);
+    }
+
+    void BirdDie()
+    {
+        bird.gameObject.SetActive(false);
         bird.dieEvent.Broadcast(bird);
+        bird.dieEvent.Broadcast();
     }
 
     public override void FixedExecute() { }
 
     public override void Execute()
     {
-        
+
     }
 
     public override void Exit()

@@ -33,6 +33,7 @@ public class BoxBehaviour : MonoBehaviour, IFactoryProduct
     void WhenComplete()
     {
         boxFallCompleteEvent.Broadcast(this);
+        boxFallCompleteEvent.Broadcast();
         isClimbable = true;
     }
 

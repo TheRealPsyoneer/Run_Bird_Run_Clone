@@ -28,13 +28,16 @@ public class Bird : Unit
 
     public float rbGravityScale;
 
-    public EventSO dieEvent;
+    
 
     public Transform[] children { get; set; }
 
     public BirdExpression expression { get; set; }
     public Transform sweat;
     public Transform sweat2;
+
+    public EventSO dieEvent;
+    public EventSO gameStartEvent;
 
     protected override void Awake()
     {
@@ -51,6 +54,11 @@ public class Bird : Unit
 
     public void MoveLeft()
     {
+        if (GameManager.Instance.gameState == GameState.MainMenu)
+        {
+            gameStartEvent.Broadcast();
+        }
+
         curSpeed = maxSpeed;
         directionIndex = 0;
         isMoving = true;
@@ -63,6 +71,11 @@ public class Bird : Unit
 
     public void MoveRight()
     {
+        if (GameManager.Instance.gameState == GameState.MainMenu)
+        {
+            gameStartEvent.Broadcast();
+        }
+
         curSpeed = maxSpeed;
         directionIndex = 1;
         isMoving = true;
@@ -87,7 +100,10 @@ public class Bird : Unit
         
         if (collision.gameObject.CompareTag("Box") && Mathf.Abs(hitDir) < 40f && isTouchingGround)
         {
-            stateMachine.TransitionTo(stateStorage[State.Die]);
+            if (stateMachine.currentState.state != State.Die)
+            {
+                stateMachine.TransitionTo(stateStorage[State.Die]);
+            }
         }
         if (collision.gameObject.CompareTag("Box") && theBox != null && theBox.isClimbable)
         {
