@@ -226,6 +226,7 @@ GameObject:
   - component: {fileID: 6447058932730169219}
   - component: {fileID: 6447058932730169216}
   - component: {fileID: 6447058932730169217}
+  - component: {fileID: 3073251426380597745}
   m_Layer: 8
   m_Name: Box_default
   m_TagString: Box
@@ -362,7 +363,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95dbf7fa175f5494a88eb96ced9983d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallTimePerCell: 0.2
   boxFallCompleteEvent: {fileID: 11400000, guid: 4668f083eb14394489ff45991abc281d, type: 2}
   isInColumnLowestQuantity: 0
   isClimbable: 0
+--- !u!114 &3073251426380597745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6447058932730169220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f705b69033f9db14ea07cdbe2de0c36c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  themes:
+  - {fileID: 21300000, guid: d1f7f8dd32487d84ebe64280a669105a, type: 3}
+  - {fileID: 21300000, guid: 2c615232a8195dc4e8d49f8e6873b26b, type: 3}
+  - {fileID: 21300000, guid: b7c009f5988626645a07f1554903af4b, type: 3}
+  themesColor: []

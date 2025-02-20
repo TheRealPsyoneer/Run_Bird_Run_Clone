@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public static string lastSceneName;
     public PlayerData playerData;
     public GameState gameState;
     public DeadMenuUI deadMenuUI;
@@ -69,6 +70,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         gameState = GameState.MainMenu;
+        lastSceneName = "Main";
     }
 
     void GameStart()
@@ -120,17 +122,8 @@ public class GameManager : MonoBehaviour
 
     public void GameRestart()
     {
-        TransitionUI.Instance.TransitionOut();
-        StartCoroutine(ReloadMainMenu());
-    }
-
-    IEnumerator ReloadMainMenu()
-    {
-        yield return new WaitForSecondsRealtime(TransitionUI.Instance.transitionTime);
-        DOTween.KillAll();
-        Time.timeScale = 1;
         gameState = GameState.MainMenu;
-        SceneManager.LoadScene(0);
+        ReturnToScene("Main");
     }
 
     void IncreaseDifficulty()
@@ -151,5 +144,27 @@ public class GameManager : MonoBehaviour
             BoxAndCandySpawner.candyNumber++;
             scoreCandyThreshold += addedScoreToIncreaseCandy;
         }
+    }
+
+    public void ReturnToScene(string sceneName)
+    {
+        DOTween.KillAll();
+        Time.timeScale = 1;
+        TransitionUI.Instance.TransitionOut();
+        StartCoroutine(LoadScene(sceneName));
+    }
+
+    public void ReturnToLastScene()
+    {
+        DOTween.KillAll();
+        Time.timeScale = 1;
+        TransitionUI.Instance.TransitionOut();
+        StartCoroutine(LoadScene(lastSceneName));
+    }
+
+    IEnumerator LoadScene(string sceneName)
+    {
+        yield return new WaitForSecondsRealtime(TransitionUI.Instance.transitionTime);
+        SceneManager.LoadScene(sceneName);
     }
 }

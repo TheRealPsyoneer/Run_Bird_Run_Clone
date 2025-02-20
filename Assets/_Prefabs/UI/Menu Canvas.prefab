@@ -306,7 +306,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 201, y: 184}
-  m_SizeDelta: {x: 314.8894, y: 92.3277}
+  m_SizeDelta: {x: 314.8894, y: 87.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1286215914442196279
 CanvasRenderer:
@@ -336,7 +336,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0123
+  m_text: 1111
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 37ca85db67c13ec419d372dd33833e26, type: 2}
   m_sharedMaterial: {fileID: -151830030232647265, guid: 37ca85db67c13ec419d372dd33833e26, type: 2}
@@ -368,7 +368,7 @@ MonoBehaviour:
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 149.73
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
@@ -538,11 +538,6 @@ MonoBehaviour:
   bestScore: {fileID: 1286215915461916207}
   gamesPlayed: {fileID: 1286215915259220790}
   score: {fileID: 1286215915412694070}
-  playerData:
-    bestScore: 0
-    gamesPlayed: 0
-    candy: 0
-    challengeNumber: 0
   textGroup: {fileID: 1286215915424281948}
   gameStartEvent: {fileID: 11400000, guid: 8a2b2d4642f9f3e40bf1cc24c13b5787, type: 2}
   scoreChangeEvent: {fileID: 11400000, guid: fe3daecaa386ad04d83bba6176ec102c, type: 2}
@@ -613,7 +608,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'GAMES PLAYED: 1'
+  m_text: 'GAMES PLAYED: 1111'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 37ca85db67c13ec419d372dd33833e26, type: 2}
   m_sharedMaterial: {fileID: -151830030232647265, guid: 37ca85db67c13ec419d372dd33833e26, type: 2}
@@ -951,7 +946,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'BEST SCORE : 0'
+  m_text: 'BEST SCORE : 1111'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 37ca85db67c13ec419d372dd33833e26, type: 2}
   m_sharedMaterial: {fileID: -151830030232647265, guid: 37ca85db67c13ec419d372dd33833e26, type: 2}

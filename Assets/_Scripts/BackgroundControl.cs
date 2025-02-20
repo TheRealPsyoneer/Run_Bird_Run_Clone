@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ParallaxBackground : MonoBehaviour
+public class BackgroundControl : MonoBehaviour
 {
     [SerializeField] EventSO cameraPositionChangeEvent;
     [SerializeField] List<float> moveScale;

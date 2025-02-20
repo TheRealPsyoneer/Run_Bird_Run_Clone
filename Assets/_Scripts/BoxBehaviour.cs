@@ -14,7 +14,6 @@ public class BoxBehaviour : MonoBehaviour, IFactoryProduct
     public bool isInColumnLowestQuantity;
     public bool isClimbable;
 
-
     public void Initialize()
     {
         gameObject.SetActive(true);

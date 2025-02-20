@@ -12,6 +12,8 @@ public class PlayerData
     public int candy;
     public int challengeNumber;
 
+    public int themeIndex;
+
     public void SaveData()
     {
         string json = JsonUtility.ToJson(this);
