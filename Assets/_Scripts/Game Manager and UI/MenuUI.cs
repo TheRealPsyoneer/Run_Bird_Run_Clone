@@ -7,6 +7,8 @@ using DG.Tweening;
 
 public class MenuUI : MonoBehaviour
 {
+    public static MenuUI Instance;
+
     public TextMeshProUGUI candy;
     public TextMeshProUGUI bestScore;
     public TextMeshProUGUI gamesPlayed;
@@ -18,13 +20,17 @@ public class MenuUI : MonoBehaviour
     public EventSO scoreChangeEvent;
     public EventSO birdDieEvent;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     private void OnEnable()
     {
         gameStartEvent.ThingHappened += HideMenu;
         gameStartEvent.ThingHappened += ShowScore;
         scoreChangeEvent.ThingHappened += ChangeScoreText;
         birdDieEvent.ThingHappened += HideScore;
-        birdDieEvent.ThingHappened += ShowText;
     }
 
     private void OnDisable()
@@ -33,7 +39,6 @@ public class MenuUI : MonoBehaviour
         gameStartEvent.ThingHappened -= ShowScore;
         scoreChangeEvent.ThingHappened -= ChangeScoreText;
         birdDieEvent.ThingHappened -= HideScore;
-        birdDieEvent.ThingHappened -= ShowText;
     }
 
     void Start()
@@ -67,7 +72,7 @@ public class MenuUI : MonoBehaviour
         score.gameObject.GetComponent<CanvasGroup>().DOFade(0, 1).SetUpdate(true);
     }
 
-    void ShowText()
+    public void ShowText()
     {
         candy.text = $"{GameManager.Instance.playerData.candy}";
         bestScore.text = $"BEST SCORE: {GameManager.Instance.playerData.bestScore}";

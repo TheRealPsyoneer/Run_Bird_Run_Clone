@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class BoxAndCandySpawner : MonoBehaviour
 {
@@ -25,6 +24,7 @@ public class BoxAndCandySpawner : MonoBehaviour
     public Dictionary<BoxBehaviour, int> boxColumnNumber = new();
     int curWaveColumnLowestQuantity;
     bool lastWaveDropDone;
+    public float WaveInterval;
 
     [Header("Candy")]
     [SerializeField] MyFactorySO[] candyFactory;
@@ -55,6 +55,8 @@ public class BoxAndCandySpawner : MonoBehaviour
         SpawnRandomBoxes();
 
     }
+
+    
 
     private void OnEnable()
     {
@@ -133,9 +135,16 @@ public class BoxAndCandySpawner : MonoBehaviour
 
             List<int> fallColumns = GetFallColumns(columns, randomSameTimeBoxFall);
             StartCoroutine(SpawnBox(fallColumns));
+            StartCoroutine(NextWave());
 
             SpawnCandy();
         }
+    }
+
+    IEnumerator NextWave()
+    {
+        yield return new WaitForSeconds(WaveInterval);
+        lastWaveDropDone = true;
     }
 
     public List<int> GetFallColumns(HashSet<int> columns, int numbers)
@@ -231,18 +240,33 @@ public class BoxAndCandySpawner : MonoBehaviour
             box.isInColumnLowestQuantity = fallColumns[i] == curWaveColumnLowestQuantity ? true : false;
 
             box.Falling();
+
+            colummBoxQuantity[boxColumnNumber[box]]++;
+
+            if (colummBoxQuantity[boxColumnNumber[box]] > columnHighestQuantity)
+            {
+                columnHighestQuantity++;
+            }
+
+            
         }
+
+        //int count = 0;
+        //for (int j = 0; j < WorldGrid.Instance.boundCellX; j++)
+        //{
+        //    if (colummBoxQuantity[j] > columnLowestQuantity)
+        //    {
+        //        count++;
+        //    }
+        //}
+        //if (count == WorldGrid.Instance.boundCellX)
+        //{
+            
+        //}
     }
 
     public void OnBoxFallComplete(BoxBehaviour box)
     {
-        if (box.isInColumnLowestQuantity)
-        {
-            lastWaveDropDone = true;
-        }
-
-        colummBoxQuantity[boxColumnNumber[box]]++;
-
         int count = 0;
         for (int i = 0; i < WorldGrid.Instance.boundCellX; i++)
         {
@@ -250,20 +274,13 @@ public class BoxAndCandySpawner : MonoBehaviour
             {
                 count++;
             }
-
-            if (count == WorldGrid.Instance.boundCellX)
-            {
-
-                currentLowestRow++;
-                columnLowestQuantity++;
-                spawnPositionY++;
-                cameraPositionChangeEvent.Broadcast();
-            }
-
-            if (colummBoxQuantity[boxColumnNumber[box]] > columnHighestQuantity)
-            {
-                columnHighestQuantity++;
-            }
+        }
+        if (count == WorldGrid.Instance.boundCellX)
+        {
+            currentLowestRow++;
+            columnLowestQuantity++;
+            spawnPositionY++;
+            cameraPositionChangeEvent.Broadcast();
         }
     }
 

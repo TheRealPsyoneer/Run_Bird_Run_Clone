@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     public float dropSpeedChange;
     public float minSpeed;
 
+    public float waveInterval;
+    public float waveIntervalChange;
 
     public float warningLiveTime;
     public float warningLiveTimeChange;
@@ -82,6 +84,7 @@ public class GameManager : MonoBehaviour
         BoxAndCandySpawner.candyNumber = 0;
         BoxBehaviour.FallTimePerCell = fallTimePerCell;
         Warning.LiveTime = warningLiveTime;
+        BoxAndCandySpawner.Instance.WaveInterval = waveInterval;
 
         BoxAndCandySpawner.Instance.InitialCheck();
     }
@@ -104,6 +107,8 @@ public class GameManager : MonoBehaviour
 
         playerData.SaveData();
 
+        MenuUI.Instance.ShowText();
+
         deadMenuUI.ShowMenu();
     }
 
@@ -115,6 +120,13 @@ public class GameManager : MonoBehaviour
 
     public void GameRestart()
     {
+        TransitionUI.Instance.TransitionOut();
+        StartCoroutine(ReloadMainMenu());
+    }
+
+    IEnumerator ReloadMainMenu()
+    {
+        yield return new WaitForSecondsRealtime(TransitionUI.Instance.transitionTime);
         DOTween.KillAll();
         Time.timeScale = 1;
         gameState = GameState.MainMenu;
@@ -127,6 +139,7 @@ public class GameManager : MonoBehaviour
         {
             BoxBehaviour.FallTimePerCell -= dropSpeedChange;
             Warning.LiveTime -= warningLiveTimeChange;
+            BoxAndCandySpawner.Instance.WaveInterval -= waveIntervalChange;
             scoreDifficultyThreshold += addedScoreToChangeDifficulty;
         }
     }
