@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class Warning : MonoBehaviour
 {
-    [SerializeField] float showInterval;
-    [SerializeField] float liveTime;
+    public static float LiveTime;
     [SerializeField] GameObject warningLine;
     SpriteRenderer sprite;
     SpriteRenderer lineSprite;
@@ -15,16 +14,15 @@ public class Warning : MonoBehaviour
     {
         sprite = GetComponent<SpriteRenderer>();
         lineSprite = warningLine.GetComponent<SpriteRenderer>();
-        
     }
 
     private void OnEnable()
     {
         lineSprite.color = Color.white;
-        lineSprite.DOColor(new Color(1, 1, 1, 0), liveTime).SetEase(Ease.InExpo);
+        lineSprite.DOColor(new Color(1, 1, 1, 0), LiveTime).SetEase(Ease.InExpo);
 
         sprite.color = Color.white;
-        sprite.DOColor(new Color(1, 1, 1, 0), liveTime).SetEase(Ease.InExpo);
+        sprite.DOColor(new Color(1, 1, 1, 0), LiveTime).SetEase(Ease.InExpo);
 
         StartCoroutine(Anim());
     }
@@ -32,15 +30,15 @@ public class Warning : MonoBehaviour
     IEnumerator Anim()
     {
         sprite.enabled = true;
-        yield return new WaitForSeconds(showInterval);
+        yield return new WaitForSeconds(LiveTime * 0.2f);
         sprite.enabled = false;
-        yield return new WaitForSeconds(showInterval);
+        yield return new WaitForSeconds(LiveTime * 0.2f);
         sprite.enabled = true;
-        yield return new WaitForSeconds(showInterval);
+        yield return new WaitForSeconds(LiveTime * 0.2f);
         sprite.enabled = false;
-        yield return new WaitForSeconds(showInterval); 
+        yield return new WaitForSeconds(LiveTime * 0.2f); 
         sprite.enabled = true;
-        yield return new WaitForSeconds(showInterval);
+        yield return new WaitForSeconds(LiveTime * 0.2f);
         gameObject.SetActive(false);
     }
 }

@@ -6,7 +6,6 @@ public class WarningSpawner : MonoBehaviour
 {
     public static WarningSpawner Instance;
     public  List<GameObject> warningList;
-    public float warningTime;
     public EventSO birdDieEvent;
 
     private void OnEnable()

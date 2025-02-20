@@ -20,7 +20,6 @@ public class PlayerData
 
     public static PlayerData LoadData()
     {
-        Debug.Log(Application.persistentDataPath);
         if (File.Exists(Application.persistentDataPath + "/playerdata.json"))
         {
             string json = File.ReadAllText(Application.persistentDataPath + "/playerdata.json");

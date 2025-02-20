@@ -11,10 +11,8 @@ public class MenuUI : MonoBehaviour
     public TextMeshProUGUI bestScore;
     public TextMeshProUGUI gamesPlayed;
     public TextMeshProUGUI score;
-    public PlayerData playerData;
 
     public CanvasGroup textGroup;
-    public CanvasGroup buttonGroup;
 
     public EventSO gameStartEvent;
     public EventSO scoreChangeEvent;
@@ -40,13 +38,11 @@ public class MenuUI : MonoBehaviour
 
     void Start()
     {
-        playerData = GameManager.Instance.playerData;
-        
-        if (playerData.gamesPlayed != 0) 
+        if (GameManager.Instance.playerData.gamesPlayed != 0) 
         {
-            candy.text = $"{playerData.candy}";
-            bestScore.text = $"BEST SCORE: {playerData.bestScore}";
-            gamesPlayed.text = $"GAMES PLAYED: {playerData.gamesPlayed}";
+            candy.text = $"{GameManager.Instance.playerData.candy}";
+            bestScore.text = $"BEST SCORE: {GameManager.Instance.playerData.bestScore}";
+            gamesPlayed.text = $"GAMES PLAYED: {GameManager.Instance.playerData.gamesPlayed}";
         }
         else
         {
@@ -73,9 +69,9 @@ public class MenuUI : MonoBehaviour
 
     void ShowText()
     {
-        candy.text = $"{playerData.candy}";
-        bestScore.text = $"BEST SCORE: {playerData.bestScore}";
-        gamesPlayed.text = $"GAMES PLAYED: {playerData.gamesPlayed}";
+        candy.text = $"{GameManager.Instance.playerData.candy}";
+        bestScore.text = $"BEST SCORE: {GameManager.Instance.playerData.bestScore}";
+        gamesPlayed.text = $"GAMES PLAYED: {GameManager.Instance.playerData.gamesPlayed}";
         textGroup.DOFade(1, 1).SetUpdate(true);
     }
 

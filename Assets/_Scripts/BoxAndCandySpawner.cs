@@ -1,15 +1,17 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class BoxSpawner : MonoBehaviour
+public class BoxAndCandySpawner : MonoBehaviour
 {
-    public static BoxSpawner Instance;
+    public static BoxAndCandySpawner Instance;
     public int spawnPositionY { get; set; }
 
     [SerializeField] MyFactorySO boxFactory;
+
     public int maxSameTimeBoxFall;
     public Dictionary<int, int> colummBoxQuantity;
 
@@ -24,19 +26,34 @@ public class BoxSpawner : MonoBehaviour
     int curWaveColumnLowestQuantity;
     bool lastWaveDropDone;
 
+    [Header("Candy")]
+    [SerializeField] MyFactorySO[] candyFactory;
+    public static MyFactorySO[] CandyFactory;
+    public static int candyNumber;
+    [SerializeField] float candyDropChance;
+    bool candyDropppedThisWave;
+
     private void Awake()
     {
         Instance = this;
+
     }
 
     void Start()
     {
         boxFactory.Initialize();
+        foreach (MyFactorySO factory in candyFactory)
+        {
+            factory.Initialize();
+        }
+        CandyFactory = candyFactory;
+
         spawnPositionY = WorldGrid.Instance.GetWorldToCellPosition(transform.position).y;
 
         lastWaveDropDone = true;
         SetUpColumn();
         SpawnRandomBoxes();
+
     }
 
     private void OnEnable()
@@ -63,10 +80,10 @@ public class BoxSpawner : MonoBehaviour
 
     void SpawnRandomBoxes()
     {
-        for (int i=0; i<colummBoxQuantity.Count; i++)
+        for (int i = 0; i < colummBoxQuantity.Count; i++)
         {
             int randomBoxes = Random.Range(0, 3);
-            for (int j=0; j<randomBoxes; j++)
+            for (int j = 0; j < randomBoxes; j++)
             {
                 BoxBehaviour box = (BoxBehaviour)boxFactory.GetProduct();
                 box.isClimbable = true;
@@ -74,7 +91,10 @@ public class BoxSpawner : MonoBehaviour
                 colummBoxQuantity[i]++;
             }
         }
+    }
 
+    public void InitialCheck()
+    {
         int time = 1;
         while (time <= 2)
         {
@@ -101,7 +121,6 @@ public class BoxSpawner : MonoBehaviour
             }
             time++;
         }
-        
     }
 
     void Update()
@@ -114,6 +133,8 @@ public class BoxSpawner : MonoBehaviour
 
             List<int> fallColumns = GetFallColumns(columns, randomSameTimeBoxFall);
             StartCoroutine(SpawnBox(fallColumns));
+
+            SpawnCandy();
         }
     }
 
@@ -193,7 +214,7 @@ public class BoxSpawner : MonoBehaviour
             WarningSpawner.Instance.GetWarning(fallColumns[i]);
         }
 
-        yield return new WaitForSeconds(WarningSpawner.Instance.warningTime);
+        yield return new WaitForSeconds(Warning.LiveTime);
 
         for (int i = 0; i < fallColumns.Count; i++)
         {
@@ -243,6 +264,24 @@ public class BoxSpawner : MonoBehaviour
             {
                 columnHighestQuantity++;
             }
+        }
+    }
+
+    void SpawnCandy()
+    {
+        float randomChance = Random.Range(0, 100f);
+        if (randomChance < candyDropChance)
+        {
+            int randomColumn = Random.Range(0,WorldGrid.Instance.boundCellX);
+            int randomCandy = Random.Range(0, candyNumber + 1);
+
+            Candy candy = (Candy)candyFactory[randomCandy].GetProduct();
+
+            candy.transform.position = WorldGrid.Instance.GetCellToWorldPosition(new Vector2Int(randomColumn, spawnPositionY));
+
+            candy.targetFallCell = new Vector2Int(randomColumn, colummBoxQuantity[randomColumn]);
+
+            candy.Falling();
         }
     }
 }

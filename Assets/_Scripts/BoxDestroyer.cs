@@ -6,7 +6,7 @@ public class BoxDestroyer : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Box"))
+        if (collision.gameObject.CompareTag("Box") || collision.gameObject.CompareTag("Candy"))
         {
             collision.gameObject.SetActive(false);
         }

@@ -35,6 +35,15 @@ public class IdleStateSO : StateNode
         {
             bird.stateMachine.TransitionTo(bird.stateStorage[State.Move]);
         }
+
+        if (bird.transform.position.x <= boundLeftX)
+        {
+            bird.transform.position = new Vector3(boundLeftX, bird.transform.position.y, bird.transform.position.z);
+        }
+        if (bird.transform.position.x >= boundRightX)
+        {
+            bird.transform.position = new Vector3(boundRightX, bird.transform.position.y, bird.transform.position.z);
+        }
     }
 
     public override void Exit()
