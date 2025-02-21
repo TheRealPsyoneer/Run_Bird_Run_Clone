@@ -34,8 +34,7 @@ public class UnlockWithCandy : UnlockableItem
             GameManager.Instance.playerData.candy = startCandy - candyPrice;
             unlockableItem.unlockedEvent.Broadcast();
 
-            unlockConditionCover.DOFade(0, 1);
-            unlockConditionCover.blocksRaycasts = false;
+            unlockConditionCover.DOFade(0, 1).OnComplete(() => unlockConditionCover.gameObject.SetActive(false));
         }
     }
 }

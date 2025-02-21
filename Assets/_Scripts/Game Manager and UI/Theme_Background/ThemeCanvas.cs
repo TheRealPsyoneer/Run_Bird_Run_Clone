@@ -17,4 +17,9 @@ public class ThemeCanvas : MonoBehaviour
     {
         candyNumber.text = $"{GameManager.Instance.playerData.candy}";
     }
+
+    public void ReturnToLastScene()
+    {
+        GameManager.Instance.ReturnToLastScene();
+    }
 }

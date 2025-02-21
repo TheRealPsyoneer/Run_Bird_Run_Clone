@@ -2,15 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ChangeTheme : SkinItem
 {
-    CanvasGroup canvasGroup;
-    protected override void Awake()
-    {
-        base.Awake();
-        canvasGroup = GetComponent<CanvasGroup>();
-    }
+    [SerializeField] CanvasGroup itemImage;
 
     private void OnEnable()
     {
@@ -26,13 +22,11 @@ public class ChangeTheme : SkinItem
     {
         if (CheckUnlocked())
         {
-            canvasGroup.alpha = 1;
-            canvasGroup.blocksRaycasts = true;
+            itemImage.gameObject.SetActive(true);
         }
         else
         {
-            canvasGroup.alpha = 0;
-            canvasGroup.blocksRaycasts = false;
+            itemImage.gameObject.SetActive(false);
         }
     }
 
@@ -56,9 +50,7 @@ public class ChangeTheme : SkinItem
     void ThemeIsUnlocked()
     {
         GameManager.Instance.playerData.unlockedThemes[thisItemID] = true;
+        itemImage.gameObject.SetActive(true);
         GameManager.Instance.playerData.SaveData();
-
-        canvasGroup.alpha = 1;
-        canvasGroup.blocksRaycasts = true;
     }
 }

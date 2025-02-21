@@ -1148,6 +1148,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5014753032525991222, guid: 748e6bf45541ffc45976be7cd671ecea, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 748e6bf45541ffc45976be7cd671ecea, type: 3}
 --- !u!4 &892818384 stripped
@@ -1624,6 +1628,10 @@ PrefabInstance:
     - target: {fileID: 5186546454475809105, guid: e83e5fcc4a05b0749aafc0187576148f, type: 3}
       propertyPath: m_Name
       value: Game Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5186546454475809107, guid: e83e5fcc4a05b0749aafc0187576148f, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5186546454475809109, guid: e83e5fcc4a05b0749aafc0187576148f, type: 3}
       propertyPath: m_Pivot.x
@@ -2317,6 +2325,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1286215914938004618, guid: 76e32018d67e29d4e98db0028b2bbaad, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76e32018d67e29d4e98db0028b2bbaad, type: 3}
 --- !u!4 &1833119704 stripped
@@ -2798,6 +2810,10 @@ PrefabInstance:
     - target: {fileID: 1353661148932913891, guid: 350a586fe56c72f4eb4b716c93bb73d4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1353661148932913893, guid: 350a586fe56c72f4eb4b716c93bb73d4, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 350a586fe56c72f4eb4b716c93bb73d4, type: 3}

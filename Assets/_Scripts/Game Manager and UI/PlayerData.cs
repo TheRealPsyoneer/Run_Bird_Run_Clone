@@ -10,14 +10,15 @@ public class PlayerData
     public int bestScore;
     public int gamesPlayed;
     public int candy;
+    public int curChallengeProgress;
     public int challengeNumber;
     public bool isFirstTime;
 
     public int birdID;
-    public bool[] unlockedBirds;
+    public List<bool> unlockedBirds;
 
     public int themeID;
-    public bool[] unlockedThemes;
+    public List<bool> unlockedThemes;
 
     public void SaveData()
     {

@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class SkinItem : MonoBehaviour
 {
     public int thisItemID;
-    public EventSO unlockedEvent;
+    public EventSO unlockedEvent { get; set; }
 
     protected virtual void Awake()
     {

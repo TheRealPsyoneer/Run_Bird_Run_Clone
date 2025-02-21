@@ -111,7 +111,7 @@ public class Bird : Unit
         BoxBehaviour theBox = collision.gameObject.GetComponent<BoxBehaviour>();
         float hitDir = Vector2.SignedAngle(Vector2.up, (Vector2)(collision.gameObject.transform.position - (transform.position + (Vector3)col.offset)));
         
-        if (collision.gameObject.CompareTag("Box") && Mathf.Abs(hitDir) < 40f && isTouchingGround)
+        if (collision.gameObject.CompareTag("Box") && Mathf.Abs(hitDir) < 44f && isTouchingGround)
         {
             if (stateMachine.currentState.state != State.Die)
             {
@@ -124,7 +124,7 @@ public class Bird : Unit
             //Debug.Log(hitDir);
             
 
-            if (hitDir >= 40f && hitDir < 147f && stateMachine.currentState.state == State.Move)
+            if (hitDir >= 44f && hitDir < 147f && stateMachine.currentState.state == State.Move)
             {
                 if (isTouchingGround)
                 {
@@ -160,7 +160,7 @@ public class Bird : Unit
                     rb.gravityScale = rbGravityScale;
                 }
             }
-            else if (hitDir <= -40f && hitDir > -147f && stateMachine.currentState.state == State.Move)
+            else if (hitDir <= -44f && hitDir > -147f && stateMachine.currentState.state == State.Move)
             {
                 if (isTouchingGround)
                 {

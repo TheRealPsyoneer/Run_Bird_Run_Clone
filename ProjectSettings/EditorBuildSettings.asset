@@ -14,5 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Theme.unity
     guid: 6cbe73c6b2f5d044a8ff8f30601446d5
+  - enabled: 1
+    path: Assets/Scenes/Challenges.unity
+    guid: d4e8f232151ba0c4cafb115d74ad11ec
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 20debd1ce6af73b4c87bb1879712cb1d, type: 2}

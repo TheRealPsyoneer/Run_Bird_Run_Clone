@@ -18,13 +18,11 @@ public abstract class UnlockableItem : MonoBehaviour
     {
         if (unlockableItem.CheckUnlocked())
         {
-            unlockConditionCover.alpha = 0;
-            unlockConditionCover.blocksRaycasts = false;
+            gameObject.SetActive(false);
         }
         else
         {
-            unlockConditionCover.alpha = 1;
-            unlockConditionCover.blocksRaycasts = true;
+            gameObject.SetActive(true);
         }
     }
 

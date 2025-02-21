@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     public static string lastSceneName;
     public PlayerData playerData;
     public GameState gameState;
-    public DeadMenuUI deadMenuUI;
 
     public EventSO gameStartEvent;
     public EventSO birdDieEvent;
@@ -22,7 +21,8 @@ public class GameManager : MonoBehaviour
     public int score;
 
     [Header("Game Difficulty")]
-    public int scoreDifficultyThreshold;
+    [SerializeField] int scoreDifficultyThreshold;
+    public int ScoreDifficultyThreshold { get; set; }
     public int addedScoreToChangeDifficulty;
 
     public float fallTimePerCell;
@@ -35,17 +35,29 @@ public class GameManager : MonoBehaviour
     public float warningLiveTime;
     public float warningLiveTimeChange;
 
-    public int scoreCandyThreshold;
+    [SerializeField] int scoreCandyThreshold;
+    public int ScoreCandyThreshold { get; set; }
     public int addedScoreToIncreaseCandy;
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
 
         playerData = PlayerData.LoadData();
         if (playerData == null)
         {
             playerData = new();
+            playerData.unlockedBirds = new();
+            playerData.unlockedThemes = new();
+            playerData.isFirstTime = true;
         }
     }
 
@@ -69,28 +81,42 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        UpdateNewSkin();
+
         if (playerData.isFirstTime)
         {
-            playerData.unlockedBirds = new bool[Bird.Instance.spriteLists.Count];
-            for (int i = 0; i < playerData.unlockedBirds.Length; i++)
-            {
-                playerData.unlockedBirds[i] = false;
-            }
             playerData.unlockedBirds[0] = true;
-
-            playerData.unlockedThemes = new bool[BackgroundControl.Instance.themeLists.Count];
-            for (int i = 0;i < playerData.unlockedThemes.Length; i++)
-            {
-                playerData.unlockedThemes[i] = false;
-            }
             playerData.unlockedThemes[0] = true;
             playerData.unlockedThemes[1] = true;
 
             playerData.isFirstTime = false;
         }
 
+        playerData.SaveData();
+
         gameState = GameState.MainMenu;
         lastSceneName = "Main";
+    }
+
+    private void UpdateNewSkin()
+    {
+        if (Bird.Instance.spriteLists.Count > playerData.unlockedBirds.Count)
+        {
+            int startIndex = playerData.unlockedBirds.Count;
+            for (int i = startIndex; i < Bird.Instance.spriteLists.Count; i++)
+            {
+                playerData.unlockedBirds.Add(false);
+            }
+        }
+
+        if (BackgroundControl.Instance.themeLists.Count > playerData.unlockedThemes.Count)
+        {
+            int startIndex = playerData.unlockedThemes.Count;
+            for (int i = startIndex; i < BackgroundControl.Instance.themeLists.Count; i++)
+            {
+                playerData.unlockedThemes.Add(false);
+            }
+        }
     }
 
     void GameStart()
@@ -107,6 +133,8 @@ public class GameManager : MonoBehaviour
         BoxBehaviour.FallTimePerCell = fallTimePerCell;
         Warning.LiveTime = warningLiveTime;
         BoxAndCandySpawner.Instance.WaveInterval = waveInterval;
+        ScoreDifficultyThreshold = scoreDifficultyThreshold;
+        ScoreCandyThreshold = scoreCandyThreshold;
 
         BoxAndCandySpawner.Instance.InitialCheck();
     }
@@ -131,7 +159,7 @@ public class GameManager : MonoBehaviour
 
         MenuUI.Instance.ShowText();
 
-        deadMenuUI.ShowMenu();
+        DeadMenuUI.Instance.ShowMenu();
     }
 
     void IncreaseScore()
@@ -143,30 +171,30 @@ public class GameManager : MonoBehaviour
     public void GameRestart()
     {
         gameState = GameState.MainMenu;
-        ReturnToScene("Main");
+        GoToScene("Main");
     }
 
     void IncreaseDifficulty()
     {
-        if (score >= scoreDifficultyThreshold && BoxBehaviour.FallTimePerCell > minSpeed)
+        if (score >= ScoreDifficultyThreshold && BoxBehaviour.FallTimePerCell > minSpeed)
         {
             BoxBehaviour.FallTimePerCell -= dropSpeedChange;
             Warning.LiveTime -= warningLiveTimeChange;
             BoxAndCandySpawner.Instance.WaveInterval -= waveIntervalChange;
-            scoreDifficultyThreshold += addedScoreToChangeDifficulty;
+            ScoreDifficultyThreshold += addedScoreToChangeDifficulty;
         }
     }
 
     void DropNewCandy()
     {
-        if (score >= scoreCandyThreshold && BoxAndCandySpawner.candyNumber < BoxAndCandySpawner.CandyFactory.Length-1)
+        if (score >= ScoreCandyThreshold && BoxAndCandySpawner.candyNumber < BoxAndCandySpawner.CandyFactory.Length-1)
         {
             BoxAndCandySpawner.candyNumber++;
-            scoreCandyThreshold += addedScoreToIncreaseCandy;
+            ScoreCandyThreshold += addedScoreToIncreaseCandy;
         }
     }
 
-    public void ReturnToScene(string sceneName)
+    public void GoToScene(string sceneName)
     {
         DOTween.KillAll();
         Time.timeScale = 1;
@@ -184,6 +212,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator LoadScene(string sceneName)
     {
+        lastSceneName = SceneManager.GetActiveScene().name;
         yield return new WaitForSecondsRealtime(TransitionUI.Instance.transitionTime);
         SceneManager.LoadScene(sceneName);
     }

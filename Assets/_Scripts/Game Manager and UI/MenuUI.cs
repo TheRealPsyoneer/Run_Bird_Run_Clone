@@ -51,9 +51,9 @@ public class MenuUI : MonoBehaviour
         }
         else
         {
-            candy.text = "";
-            bestScore.text = "";
-            gamesPlayed.text = "";
+            candy.gameObject.SetActive(false);
+            bestScore.gameObject.SetActive(false);
+            gamesPlayed.gameObject.SetActive(false);
         }
     }
 

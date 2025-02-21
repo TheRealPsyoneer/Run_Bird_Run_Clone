@@ -26,15 +26,12 @@ public class MenuButtonCanvas : MonoBehaviour
 
     public void LoadThemeScene()
     {
-        TransitionUI.Instance.TransitionOut();
-
-        StartCoroutine(LoadingScene("Theme"));
+        GameManager.Instance.GoToScene("Theme");
     }
 
-    IEnumerator LoadingScene(string sceneName)
+    public void LoadChallengesScene()
     {
-        yield return new WaitForSecondsRealtime(TransitionUI.Instance.transitionTime);
-        SceneManager.LoadScene(sceneName);
+        GameManager.Instance.GoToScene("Challenges");
     }
 
     void HideMenu()

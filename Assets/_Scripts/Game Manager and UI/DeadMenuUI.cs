@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 
 public class DeadMenuUI : MonoBehaviour
 {
+    public static DeadMenuUI Instance;
+
     public TextMeshProUGUI points;
 
     [HideInInspector]
@@ -17,6 +19,7 @@ public class DeadMenuUI : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
         canvasGroups = GetComponentsInChildren<CanvasGroup>();
     }
 
@@ -32,13 +35,13 @@ public class DeadMenuUI : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(1);
         canvasGroups[0].DOFade(1, 0.2f).SetUpdate(true);
-        canvasGroups[0].interactable = true;
+        canvasGroups[0].blocksRaycasts = true;
         yield return new WaitForSecondsRealtime(0.2f);
         canvasGroups[1].DOFade(1, 0.2f).SetUpdate(true);
-        canvasGroups[1].interactable = true;
+        canvasGroups[1].blocksRaycasts = true;
         yield return new WaitForSecondsRealtime(0.2f);
         canvasGroups[2].DOFade(1, 0.2f).SetUpdate(true);
-        canvasGroups[2].interactable = true;
+        canvasGroups[2].blocksRaycasts = true;
         interactable = true;
     }
 
