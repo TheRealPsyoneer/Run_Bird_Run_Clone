@@ -48,9 +48,4 @@ public class DeadMenuUI : MonoBehaviour
 
         GameManager.Instance.GameRestart();
     }
-
-    public void ButtonDownColorChange()
-    {
-
-    }
 }

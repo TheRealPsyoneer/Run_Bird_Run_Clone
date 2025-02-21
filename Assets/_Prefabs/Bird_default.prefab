@@ -184,6 +184,11 @@ MonoBehaviour:
   sweat2: {fileID: 8351291247667495791}
   dieEvent: {fileID: 11400000, guid: b2cac9ec3255c1544a37824095219838, type: 2}
   gameStartEvent: {fileID: 11400000, guid: 8a2b2d4642f9f3e40bf1cc24c13b5787, type: 2}
+  spriteLists:
+  - sprites:
+    - {fileID: 442528296, guid: 12395fcb6c261324da04c1792f443a87, type: 3}
+    - {fileID: -1640420118, guid: e1ab7d0c8c5f73443adddacb79222175, type: 3}
+  curSpriteRenderer: {fileID: 4047478468597450284}
 --- !u!114 &600932972
 MonoBehaviour:
   m_ObjectHideFlags: 0

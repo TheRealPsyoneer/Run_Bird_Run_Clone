@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
+using System;
 
 public class Bird : Unit
 {
+    public static Bird Instance;
+
     [SerializeField] float maxSpeed;
     public float curSpeed;
     [SerializeField] float rotateTime;
@@ -39,9 +42,19 @@ public class Bird : Unit
     public EventSO dieEvent;
     public EventSO gameStartEvent;
 
+    public List<SpritePseudoList> spriteLists;
+    [Serializable]
+    public struct SpritePseudoList
+    {
+        public List<Sprite> sprites;
+    }
+    
+    public SpriteRenderer curSpriteRenderer;
+
     protected override void Awake()
     {
         base.Awake();
+        Instance = this;
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
         expression = GetComponent<BirdExpression>();

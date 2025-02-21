@@ -10,6 +10,7 @@ public class DieStateSO : StateNode
     public override void Enter()
     {
         bird = (Bird)unit;
+        bird.curSpriteRenderer.sprite = bird.spriteLists[GameManager.Instance.playerData.birdID].sprites[0];
 
         bird.transform.DOScaleY(0, BoxBehaviour.FallTimePerCell).SetUpdate(true)
             .OnComplete(BirdDie);

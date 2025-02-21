@@ -69,6 +69,26 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        if (playerData.isFirstTime)
+        {
+            playerData.unlockedBirds = new bool[Bird.Instance.spriteLists.Count];
+            for (int i = 0; i < playerData.unlockedBirds.Length; i++)
+            {
+                playerData.unlockedBirds[i] = false;
+            }
+            playerData.unlockedBirds[0] = true;
+
+            playerData.unlockedThemes = new bool[BackgroundControl.Instance.themeLists.Count];
+            for (int i = 0;i < playerData.unlockedThemes.Length; i++)
+            {
+                playerData.unlockedThemes[i] = false;
+            }
+            playerData.unlockedThemes[0] = true;
+            playerData.unlockedThemes[1] = true;
+
+            playerData.isFirstTime = false;
+        }
+
         gameState = GameState.MainMenu;
         lastSceneName = "Main";
     }

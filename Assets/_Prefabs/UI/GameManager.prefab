@@ -59,9 +59,9 @@ MonoBehaviour:
   score: 0
   scoreDifficultyThreshold: 30
   addedScoreToChangeDifficulty: 20
-  fallTimePerCell: 0.2
+  fallTimePerCell: 0.175
   dropSpeedChange: 0.025
-  minSpeed: 0.076
+  minSpeed: 0.051
   waveInterval: 1.5
   waveIntervalChange: 0.1
   warningLiveTime: 1

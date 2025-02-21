@@ -16,11 +16,11 @@ public class ChangeSpriteWithTheme : MonoBehaviour
     {
         if (themes.Length > 0)
         {
-            spriteRenderer.sprite = themes[GameManager.Instance.playerData.themeIndex];
+            spriteRenderer.sprite = themes[GameManager.Instance.playerData.themeID];
         }
         if (themesColor.Length > 0)
         {
-            spriteRenderer.color = themesColor[GameManager.Instance.playerData.themeIndex];
+            spriteRenderer.color = themesColor[GameManager.Instance.playerData.themeID];
         }
     }
 }
