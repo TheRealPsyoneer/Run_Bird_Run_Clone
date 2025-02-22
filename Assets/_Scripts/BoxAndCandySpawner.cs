@@ -23,7 +23,7 @@ public class BoxAndCandySpawner : MonoBehaviour
     [SerializeField] EventSO cameraPositionChangeEvent;
     public Dictionary<BoxBehaviour, int> boxColumnNumber = new();
     int curWaveColumnLowestQuantity;
-    bool lastWaveDropDone;
+    public bool lastWaveDropDone;
     public float WaveInterval;
 
     [Header("Candy")]
@@ -50,7 +50,7 @@ public class BoxAndCandySpawner : MonoBehaviour
 
         spawnPositionY = WorldGrid.Instance.GetWorldToCellPosition(transform.position).y;
 
-        lastWaveDropDone = true;
+        lastWaveDropDone = false;
         SetUpColumn();
         SpawnRandomBoxes();
 

@@ -20,6 +20,8 @@ public class MenuUI : MonoBehaviour
     public EventSO scoreChangeEvent;
     public EventSO birdDieEvent;
 
+    [SerializeField] List<Color> textColors;
+
     private void Awake()
     {
         Instance = this;
@@ -43,6 +45,11 @@ public class MenuUI : MonoBehaviour
 
     void Start()
     {
+        score.color = textColors[GameManager.Instance.playerData.themeID];
+        candy.color = textColors[GameManager.Instance.playerData.themeID];
+        bestScore.color = textColors[GameManager.Instance.playerData.themeID];
+        gamesPlayed.color = textColors[GameManager.Instance.playerData.themeID];
+
         if (GameManager.Instance.playerData.gamesPlayed != 0) 
         {
             candy.text = $"{GameManager.Instance.playerData.candy}";

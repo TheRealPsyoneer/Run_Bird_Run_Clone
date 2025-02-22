@@ -7,5 +7,5 @@ public class ChallengeSO : ScriptableObject
 {
     public string instruction;
     public int goal;
-
+    public ChallengeType challengeType;
 }

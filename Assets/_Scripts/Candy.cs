@@ -67,6 +67,11 @@ public class Candy : MonoBehaviour, IFactoryProduct
             col.enabled = false;
 
             GameManager.Instance.playerData.candy += value;
+            if (GameManager.Instance.challenges[GameManager.Instance.playerData.challengeNumber].challengeType == ChallengeType.CollectCandiesSingleGame
+                || GameManager.Instance.challenges[GameManager.Instance.playerData.challengeNumber].challengeType == ChallengeType.CollectTotalCandies)
+            {
+                GameManager.Instance.playerData.curChallengeProgress += value;
+            }
 
             PlusCandy instance = (PlusCandy) plusCandyFactory.GetProduct();
             instance.transform.position = transform.position + new Vector3(0,WorldGrid.Instance.CelValue * 0.5f);

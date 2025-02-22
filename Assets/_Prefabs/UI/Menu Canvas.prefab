@@ -543,6 +543,10 @@ MonoBehaviour:
   gameStartEvent: {fileID: 11400000, guid: 8a2b2d4642f9f3e40bf1cc24c13b5787, type: 2}
   scoreChangeEvent: {fileID: 11400000, guid: fe3daecaa386ad04d83bba6176ec102c, type: 2}
   birdDieEvent: {fileID: 11400000, guid: b2cac9ec3255c1544a37824095219838, type: 2}
+  textColors:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 0.015574946, g: 0.048967507, b: 0.36078432, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1286215915259220784
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &359114890782705623
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 359114890782705620}
+  - component: {fileID: 359114890782705621}
+  m_Layer: 0
+  m_Name: Box And Candy Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &359114890782705620
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359114890782705623}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 5.52, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &359114890782705621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359114890782705623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b51e746454586944c8e29c31bc0fb360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxFactory: {fileID: 11400000, guid: 85167f694d301ae48839c546995875b7, type: 2}
+  maxSameTimeBoxFall: 4
+  maxColumnQuantityDifference: 3
+  boxDir: ffffffff01000000
+  boxFallCompleteEvent: {fileID: 11400000, guid: 4668f083eb14394489ff45991abc281d, type: 2}
+  cameraPositionChangeEvent: {fileID: 11400000, guid: ab304a88d86575d4bbdf0809841eae3c, type: 2}
+  lastWaveDropDone: 0
+  WaveInterval: 0
+  candyFactory:
+  - {fileID: 11400000, guid: 44ec203d57de82f4192100bd7a42e96d, type: 2}
+  - {fileID: 11400000, guid: f39751f8417e283428b0462f8a36fb39, type: 2}
+  - {fileID: 11400000, guid: 0f9b4e9ff06ea324bb7701a86573b8ff, type: 2}
+  candyDropChance: 37.5

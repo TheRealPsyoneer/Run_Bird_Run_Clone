@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     public EventSO boxFallCompleteEvent;
     public EventSO scoreChangeEvent;
 
+    public List<ChallengeSO> challenges;
+
     [Header("Player This Session Data")]
     public int score;
 
@@ -121,9 +123,16 @@ public class GameManager : MonoBehaviour
 
     void GameStart()
     {
+        gameState = GameState.Playing;
+
         StartCoroutine(DelayStart());
         
         playerData.gamesPlayed++;
+        if (challenges[playerData.challengeNumber].challengeType == ChallengeType.PlayGames)
+        {
+            playerData.curChallengeProgress++;
+        }
+
         playerData.SaveData();
 
         score = 0;
@@ -142,7 +151,8 @@ public class GameManager : MonoBehaviour
     IEnumerator DelayStart()
     {
         yield return new WaitForSeconds(1);
-        gameState = GameState.Playing;
+        
+        BoxAndCandySpawner.Instance.lastWaveDropDone = true;
     }
 
     void GameOver()
@@ -155,16 +165,44 @@ public class GameManager : MonoBehaviour
             playerData.bestScore = score;
         }
 
-        playerData.SaveData();
+        if (playerData.curChallengeProgress >= challenges[playerData.challengeNumber].goal)
+        {
+            ChallengeDetailUI.Instance.ShowCompleteChallengeSequence();
 
+            StartCoroutine(DelayShowEndScreen());
+        }
+        else
+        {
+            if (challenges[playerData.challengeNumber].challengeType == ChallengeType.ScoreSingleGame
+                || challenges[playerData.challengeNumber].challengeType == ChallengeType.CollectCandiesSingleGame)
+            {
+                playerData.curChallengeProgress = 0;
+            }
+
+            playerData.SaveData();
+
+            MenuUI.Instance.ShowText();
+            DeadMenuUI.Instance.ShowMenu();
+        }
+
+        
+    }
+
+    IEnumerator DelayShowEndScreen()
+    {
+        yield return new WaitForSecondsRealtime(6.5f);
         MenuUI.Instance.ShowText();
-
         DeadMenuUI.Instance.ShowMenu();
     }
 
     void IncreaseScore()
     {
         score++;
+        if (challenges[playerData.challengeNumber].challengeType == ChallengeType.ScoreSingleGame
+            || challenges[playerData.challengeNumber].challengeType == ChallengeType.ScoreTotalPoints)
+        {
+            playerData.curChallengeProgress++;
+        }
         scoreChangeEvent.Broadcast();
     }
 
@@ -196,16 +234,12 @@ public class GameManager : MonoBehaviour
 
     public void GoToScene(string sceneName)
     {
-        DOTween.KillAll();
-        Time.timeScale = 1;
         TransitionUI.Instance.TransitionOut();
         StartCoroutine(LoadScene(sceneName));
     }
 
     public void ReturnToLastScene()
     {
-        DOTween.KillAll();
-        Time.timeScale = 1;
         TransitionUI.Instance.TransitionOut();
         StartCoroutine(LoadScene(lastSceneName));
     }
@@ -214,6 +248,8 @@ public class GameManager : MonoBehaviour
     {
         lastSceneName = SceneManager.GetActiveScene().name;
         yield return new WaitForSecondsRealtime(TransitionUI.Instance.transitionTime);
+        DOTween.KillAll();
+        Time.timeScale = 1;
         SceneManager.LoadScene(sceneName);
     }
 }

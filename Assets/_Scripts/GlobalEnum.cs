@@ -16,3 +16,8 @@ public enum GameState
 {
     MainMenu, Playing, Pause
 }
+
+public enum ChallengeType
+{
+    PlayGames, ScoreSingleGame, CollectTotalCandies, ScoreTotalPoints, CollectCandiesSingleGame
+}
