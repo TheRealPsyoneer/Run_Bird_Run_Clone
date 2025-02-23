@@ -1137,10 +1137,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5014753032525991222, guid: 748e6bf45541ffc45976be7cd671ecea, type: 3}
-      propertyPath: m_MatchWidthOrHeight
-      value: 0.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 748e6bf45541ffc45976be7cd671ecea, type: 3}
 --- !u!4 &892818384 stripped
@@ -1658,10 +1654,6 @@ PrefabInstance:
     - target: {fileID: 5186546454475809105, guid: e83e5fcc4a05b0749aafc0187576148f, type: 3}
       propertyPath: m_Name
       value: Game Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 5186546454475809107, guid: e83e5fcc4a05b0749aafc0187576148f, type: 3}
-      propertyPath: m_MatchWidthOrHeight
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5186546454475809109, guid: e83e5fcc4a05b0749aafc0187576148f, type: 3}
       propertyPath: m_Pivot.x
@@ -2693,10 +2685,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 841098390, guid: 29e0cba0aefcfc840b3b4f1359b0a042, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: b4717a7f1dd8cea4da3d8c94f2db2c12, type: 2}
     - target: {fileID: 3665850899095039124, guid: 29e0cba0aefcfc840b3b4f1359b0a042, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2794,18 +2782,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1353661148808360151, guid: 350a586fe56c72f4eb4b716c93bb73d4, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1353661148808360151, guid: 350a586fe56c72f4eb4b716c93bb73d4, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1353661148808360151, guid: 350a586fe56c72f4eb4b716c93bb73d4, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1353661148932913433, guid: 350a586fe56c72f4eb4b716c93bb73d4, type: 3}
       propertyPath: m_Name
       value: Transition Canvas
@@ -2897,10 +2873,6 @@ PrefabInstance:
     - target: {fileID: 1353661148932913891, guid: 350a586fe56c72f4eb4b716c93bb73d4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1353661148932913893, guid: 350a586fe56c72f4eb4b716c93bb73d4, type: 3}
-      propertyPath: m_MatchWidthOrHeight
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 350a586fe56c72f4eb4b716c93bb73d4, type: 3}
@@ -3037,7 +3009,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6252795390894072756, guid: d2a5e7a859447a14595fe84f10bea369, type: 3}
       propertyPath: m_Name
-      value: Bird_default
+      value: Bird
       objectReference: {fileID: 0}
     - target: {fileID: 6252795390894072762, guid: d2a5e7a859447a14595fe84f10bea369, type: 3}
       propertyPath: m_RootOrder
@@ -3140,6 +3112,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background
       objectReference: {fileID: 0}
+    - target: {fileID: 7935069475770276473, guid: 6367e34dc9e19d8498a10c1574a78ad4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.96999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 7935069475770276473, guid: 6367e34dc9e19d8498a10c1574a78ad4, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6367e34dc9e19d8498a10c1574a78ad4, type: 3}
 --- !u!1001 &8226458943025342073
@@ -3197,5 +3177,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1876696024159185857, guid: b81e3dc9c2829d240b6c49df6a922dbf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b81e3dc9c2829d240b6c49df6a922dbf, type: 3}
