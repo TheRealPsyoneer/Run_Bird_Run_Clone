@@ -5,6 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
@@ -14,9 +17,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Challenges.unity
     guid: d4e8f232151ba0c4cafb115d74ad11ec
-  - enabled: 1
-    path: Assets/Scenes/Birds.unity
-    guid: 8999cee35cdecb543a517bdba8fadb56
   m_configObjects:
-    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 8b957f8cea26ece40a9e9efd7d4d4ec7, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 20debd1ce6af73b4c87bb1879712cb1d, type: 2}

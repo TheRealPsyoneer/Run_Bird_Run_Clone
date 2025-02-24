@@ -1336,7 +1336,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1000
+  m_text: 9999
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 37ca85db67c13ec419d372dd33833e26, type: 2}
   m_sharedMaterial: {fileID: -151830030232647265, guid: 37ca85db67c13ec419d372dd33833e26, type: 2}
@@ -1972,8 +1972,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1630097302}
-          m_TargetAssemblyTypeName: ShopMenuCanvas, Assembly-CSharp
-          m_MethodName: ReturnToMenu
+          m_TargetAssemblyTypeName: ThemeCanvas, Assembly-CSharp
+          m_MethodName: ReturnToLastScene
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2218,7 +2218,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1630097297}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21cf65d3685a27943bf231a842be3624, type: 3}
+  m_Script: {fileID: 11500000, guid: 497a5da7d5df5db41a19c4f2471edd70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   candyNumber: {fileID: 102974203}
@@ -2239,7 +2239,7 @@ GameObject:
   - component: {fileID: 1678779604}
   - component: {fileID: 1678779603}
   m_Layer: 5
-  m_Name: Unlockable Item Condition Cover
+  m_Name: Theme Fire Condition Cover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2280,6 +2280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c40516359cb64064b85e90a109e3e2be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  candyPrice: 1000
 --- !u!114 &1678779604
 MonoBehaviour:
   m_ObjectHideFlags: 0

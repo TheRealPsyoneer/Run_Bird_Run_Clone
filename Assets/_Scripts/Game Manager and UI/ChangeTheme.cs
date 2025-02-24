@@ -10,12 +10,12 @@ public class ChangeTheme : SkinItem
 
     private void OnEnable()
     {
-        unlockedEvent.ThingHappened += ThemeUnlockAction;
+        unlockedEvent.ThingHappened += ThemeIsUnlocked;
     }
 
     private void OnDisable()
     {
-        unlockedEvent.ThingHappened -= ThemeUnlockAction;
+        unlockedEvent.ThingHappened -= ThemeIsUnlocked;
     }
 
     private void Start()
@@ -35,7 +35,7 @@ public class ChangeTheme : SkinItem
         GameManager.Instance.playerData.themeID = thisItemID;
         GameManager.Instance.playerData.SaveData();
 
-        GameManager.Instance.GoToScene("Main");
+        GameManager.Instance.ReturnToLastScene();
     }
 
     public override bool CheckUnlocked()
@@ -47,7 +47,7 @@ public class ChangeTheme : SkinItem
         return false;
     }
 
-    void ThemeUnlockAction()
+    void ThemeIsUnlocked()
     {
         GameManager.Instance.playerData.unlockedThemes[thisItemID] = true;
         itemImage.gameObject.SetActive(true);

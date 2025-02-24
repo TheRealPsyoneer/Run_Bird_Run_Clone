@@ -13,7 +13,6 @@ public class PlayerData
     public int curChallengeProgress;
     public int challengeNumber;
     public bool isFirstTime;
-    public DateTime lastDailyPrizeDate;
 
     public int birdID;
     public List<bool> unlockedBirds;
