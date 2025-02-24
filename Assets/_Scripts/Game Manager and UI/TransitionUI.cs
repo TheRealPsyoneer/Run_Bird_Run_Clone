@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class TransitionUI : MonoBehaviour
 {
@@ -18,6 +19,11 @@ public class TransitionUI : MonoBehaviour
 
     private void Start()
     {
+        if (SceneManager.GetActiveScene().name == "Intro")
+        {
+            canvasGroup.alpha = 0;
+            return;
+        }
         canvasGroup.DOFade(0, transitionTime).OnComplete(() => 
         {
             GameManager.Instance.gameState = GameState.MainMenu;

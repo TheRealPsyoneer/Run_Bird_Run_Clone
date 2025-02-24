@@ -19,7 +19,7 @@ public class MoveStateSO : StateNode
     public override void Enter()
     {
         bird = (Bird)unit;
-        bird.curSpriteRenderer.sprite = bird.spriteLists[GameManager.Instance.playerData.birdID].sprites[1];
+        bird.curSpriteRenderer.sprite = GameManager.Instance.spriteLists[GameManager.Instance.playerData.birdID].sprites[1];
 
         boundLeftX = WorldGrid.Instance.GetCellToWorldPosition(new Vector2Int(0, 0)).x;
         boundRightX = WorldGrid.Instance.GetCellToWorldPosition(new Vector2Int(WorldGrid.Instance.boundCellX-1, 0)).x;

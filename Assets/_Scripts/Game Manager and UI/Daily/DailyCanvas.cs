@@ -11,14 +11,16 @@ public class DailyCanvas : MonoBehaviour
 {
     [SerializeField] Button wheel1;
     [SerializeField] Button wheel2;
-    public Button curWheel;
+    public Button curWheel { get; set; }
 
     [SerializeField] TextMeshProUGUI checkingConnectionText;
     public DateTime internetTime;
-    public EventSO gotInternetTime;
+    public EventSO gotInternetTime { get; set; }
 
     bool isSpinning;
-    List<DailyPrize> prizeList;
+    public List<DailyPrize> prizeList1;
+    public List<DailyPrize> prizeList2;
+    public List<DailyPrize> curPrizeList { get; set; }
 
     private void Awake()
     {
@@ -42,60 +44,46 @@ public class DailyCanvas : MonoBehaviour
             curWheel = wheel1;
             curWheel.gameObject.SetActive(true);
             wheel2.gameObject.SetActive(false);
+
+            curPrizeList = prizeList1;
         }
         else
         {
             curWheel = wheel2;
             curWheel.gameObject.SetActive(true);
             wheel1.gameObject.SetActive(false);
+
+            curPrizeList = prizeList2;
         }
 
+        curWheel.gameObject.GetComponent<CanvasGroup>().alpha = 0.25f;
         curWheel.interactable = false;
 
-        StartCoroutine(GetInternetTime());
+        StartCoroutine(GettingInternetTime());
     }
 
-    IEnumerator GetInternetTime()
+    IEnumerator GettingInternetTime()
     {
-        string[] timeURLs = new string[]
+        string timeURLs = "http://time.google.com";
+
+        UnityWebRequest unityWebRequest = UnityWebRequest.Get(timeURLs);
+        unityWebRequest.timeout = 5;
+
+        yield return unityWebRequest.SendWebRequest();
+
+        if (unityWebRequest.result == UnityWebRequest.Result.Success)
         {
-            "http://worldclockapi.com/api/json/utc/now",
-            "http://worldtimeapi.org/api/timezone/Etc/UTC",
-            "http://time.google.com"
-        };
+            string dateStr = unityWebRequest.GetResponseHeader("date");
+            internetTime = DateTime.Parse(dateStr);
 
-        foreach (string url in timeURLs)
-        {
-            UnityWebRequest unityWebRequest = UnityWebRequest.Get(url);
-            unityWebRequest.timeout = 5;
-
-            yield return unityWebRequest.SendWebRequest();
-
-            if (unityWebRequest.result == UnityWebRequest.Result.Success)
-            {
-                if (url.Contains("google.com"))
-                {
-                    string dateStr = unityWebRequest.GetResponseHeader("date");
-                    internetTime = DateTime.Parse(dateStr);
-                }
-                else
-                {
-                    string json = JsonUtility.FromJson<string>(unityWebRequest.downloadHandler.text);
-                    internetTime = DateTime.Parse(json);
-                }
-                Debug.Log("Got time from " + url + ": " + internetTime.ToString());
-                gotInternetTime.Broadcast();
-
-                yield break;
-            }
-            else
-            {
-                Debug.Log($"Failed to get time from {url}, trying next server...");
-            }
-            
+            Debug.Log("Got time from " + timeURLs + ": " + internetTime.ToString());
+            gotInternetTime.Broadcast();
         }
-
-        checkingConnectionText.text = "CONNECTION\nERROR";
+        else
+        {
+            Debug.Log($"Failed to get time from {timeURLs}, trying next server...");
+            checkingConnectionText.text = "CONNECTION\nERROR";
+        }
     }
 
     void CheckingPlayerDaily()
@@ -103,6 +91,7 @@ public class DailyCanvas : MonoBehaviour
         if (internetTime.Date.CompareTo(GameManager.Instance.playerData.lastDailyPrizeDate.Date) > 0)
         {
             curWheel.interactable = true;
+            curWheel.gameObject.GetComponent<CanvasGroup>().alpha = 1;
             checkingConnectionText.gameObject.SetActive(false);
         }
         else
@@ -117,19 +106,22 @@ public class DailyCanvas : MonoBehaviour
 
         isSpinning = true;
         int randomPrizeIndex = UnityEngine.Random.Range(0, 8);
-        float targetRotation = 20 * 360f + 22.5f * randomPrizeIndex;
+        float targetRotation = 15 * 360f + UnityEngine.Random.Range(1f,44f) + 45f * randomPrizeIndex;
 
 
-        curWheel.gameObject.GetComponent<Image>().rectTransform.DOLocalRotate(new Vector3(0, 0, -targetRotation), 5, RotateMode.FastBeyond360).SetEase(Ease.OutCubic)
+        curWheel.gameObject.GetComponent<Image>().rectTransform.DOLocalRotate(new Vector3(0, 0, targetRotation), 5, RotateMode.FastBeyond360).SetEase(Ease.OutCubic)
             .OnComplete(() =>
             {
-                DailyPrize instance = Instantiate(prizeList[randomPrizeIndex]);
+                DailyPrize instance = Instantiate(curPrizeList[randomPrizeIndex]);
                 instance.GivePlayerReward();
+                GameManager.Instance.playerData.lastDailyPrizeDate = internetTime;
+                isSpinning = false;
             });
     }
 
     public void ReturnToMenu()
     {
+        if (isSpinning) return;
         GameManager.Instance.GoToScene("Main");
     }
 }

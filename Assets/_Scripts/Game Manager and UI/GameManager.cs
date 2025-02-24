@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +19,13 @@ public class GameManager : MonoBehaviour
     public EventSO scoreChangeEvent;
 
     public List<ChallengeSO> challenges;
+
+    public List<SpritePseudoList> spriteLists;
+    [Serializable]
+    public struct SpritePseudoList
+    {
+        public List<Sprite> sprites;
+    }
 
     public List<int> specialBirdsID;
     public HashSet<int> cachedSpecialBirdsID;
@@ -95,13 +103,6 @@ public class GameManager : MonoBehaviour
             playerData.unlockedBirds[0] = true;
             playerData.unlockedThemes[0] = true;
             playerData.unlockedThemes[1] = true;
-
-            foreach (int ID in specialBirdsID)
-            {
-                playerData.specialBirdsID.Add(ID);
-            }
-
-            playerData.isFirstTime = false;
         }
         else
         {
@@ -122,10 +123,10 @@ public class GameManager : MonoBehaviour
 
     private void UpdateNewSkin()
     {
-        if (Bird.Instance.spriteLists.Count > playerData.unlockedBirds.Count)
+        if (spriteLists.Count > playerData.unlockedBirds.Count)
         {
             int startIndex = playerData.unlockedBirds.Count;
-            for (int i = startIndex; i < Bird.Instance.spriteLists.Count; i++)
+            for (int i = startIndex; i < spriteLists.Count; i++)
             {
                 playerData.unlockedBirds.Add(false);
             }

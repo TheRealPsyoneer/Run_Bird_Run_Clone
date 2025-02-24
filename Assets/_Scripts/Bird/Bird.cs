@@ -41,13 +41,6 @@ public class Bird : Unit
 
     public EventSO dieEvent;
     public EventSO gameStartEvent;
-
-    public List<SpritePseudoList> spriteLists;
-    [Serializable]
-    public struct SpritePseudoList
-    {
-        public List<Sprite> sprites;
-    }
     
     public SpriteRenderer curSpriteRenderer;
 
