@@ -23,8 +23,6 @@ public class UnlockWithCandy : UnlockableItem
     {
         if (GameManager.Instance.playerData.candy >= candyPrice)
         {
-            unlockConditionCover.interactable = false;
-
             int startCandy = GameManager.Instance.playerData.candy;
             TextMeshProUGUI textCandy = ShopMenuCanvas.Instance.candyNumber;
             DOTween.To(() => startCandy, x =>

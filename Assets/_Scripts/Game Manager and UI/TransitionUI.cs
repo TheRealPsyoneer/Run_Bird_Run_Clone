@@ -18,12 +18,11 @@ public class TransitionUI : MonoBehaviour
 
     private void Start()
     {
-        canvasGroup.DOFade(0, transitionTime).OnComplete(() => canvasGroup.blocksRaycasts = false);
+        canvasGroup.DOFade(0, transitionTime);
     }
 
     public void TransitionOut()
     {
-        canvasGroup.blocksRaycasts = true;
         canvasGroup.DOFade(1, transitionTime).SetUpdate(true);
     }
 }
