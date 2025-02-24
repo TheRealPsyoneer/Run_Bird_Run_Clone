@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8226458943163787313}
   - component: {fileID: 8226458943163787312}
-  - component: {fileID: 2068784362}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -174,15 +173,3 @@ MonoBehaviour:
   warningLiveTimeChange: 0.1
   scoreCandyThreshold: 50
   addedScoreToIncreaseCandy: 50
---- !u!114 &2068784362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8226458943163787326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 629fd227f5f344a4ea9ff89656172b2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

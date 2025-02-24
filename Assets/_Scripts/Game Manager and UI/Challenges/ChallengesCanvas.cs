@@ -21,8 +21,8 @@ public class ChallengesCanvas : MonoBehaviour
         }
     }
 
-    public void ReturnToLastScene()
+    public void ReturnToMenu()
     {
-        GameManager.Instance.ReturnToLastScene();
+        GameManager.Instance.GoToScene("Main");
     }
 }

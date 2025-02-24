@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UnlockWithCandy : UnlockableItem
 {
-    [SerializeField] int candyPrice;
+    int candyPrice;
     TextMeshProUGUI candyPriceText;
 
     protected override void Awake()
@@ -16,15 +16,17 @@ public class UnlockWithCandy : UnlockableItem
     protected override void Start()
     {
         base.Start();
-        candyPriceText.text = $"{candyPrice}";
+        candyPrice = int.Parse(candyPriceText.text);
     }
 
     public override void UnlockAction()
     {
         if (GameManager.Instance.playerData.candy >= candyPrice)
         {
+            unlockConditionCover.interactable = false;
+
             int startCandy = GameManager.Instance.playerData.candy;
-            TextMeshProUGUI textCandy = ThemeCanvas.Instance.candyNumber;
+            TextMeshProUGUI textCandy = ShopMenuCanvas.Instance.candyNumber;
             DOTween.To(() => startCandy, x =>
             {
                 startCandy = x;
