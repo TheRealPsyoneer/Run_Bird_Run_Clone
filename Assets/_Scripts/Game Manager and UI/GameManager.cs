@@ -74,6 +74,8 @@ public class GameManager : MonoBehaviour
             playerData.unlockedThemes = new();
             playerData.isFirstTime = true;
         }
+
+        Application.targetFrameRate = 60;
     }
 
     private void OnEnable()

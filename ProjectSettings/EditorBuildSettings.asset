@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Daily.unity
     guid: b349e9926db4a0047927af3a4e5a9bd5
+  - enabled: 0
+    path: Assets/Scenes/Test Scene.unity
+    guid: 5c868d5568114e14c8102b506d832819
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 8b957f8cea26ece40a9e9efd7d4d4ec7, type: 2}
-    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 20debd1ce6af73b4c87bb1879712cb1d, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 9774414759be88c419e0220149472e2f, type: 2}
