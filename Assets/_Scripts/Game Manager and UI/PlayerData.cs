@@ -17,6 +17,7 @@ public class PlayerData
 
     public int birdID;
     public List<bool> unlockedBirds;
+    public List<int> specialBirdsID;
 
     public int themeID;
     public List<bool> unlockedThemes;

@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Birds.unity
     guid: 8999cee35cdecb543a517bdba8fadb56
+  - enabled: 1
+    path: Assets/Scenes/Daily.unity
+    guid: b349e9926db4a0047927af3a4e5a9bd5
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 8b957f8cea26ece40a9e9efd7d4d4ec7, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 20debd1ce6af73b4c87bb1879712cb1d, type: 2}

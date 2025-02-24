@@ -18,11 +18,16 @@ public class TransitionUI : MonoBehaviour
 
     private void Start()
     {
-        canvasGroup.DOFade(0, transitionTime).OnComplete(() => canvasGroup.blocksRaycasts = false);
+        canvasGroup.DOFade(0, transitionTime).OnComplete(() => 
+        {
+            GameManager.Instance.gameState = GameState.MainMenu;
+            canvasGroup.blocksRaycasts = false; 
+        });
     }
 
     public void TransitionOut()
     {
+        GameManager.Instance.gameState = GameState.Pause;
         canvasGroup.blocksRaycasts = true;
         canvasGroup.DOFade(1, transitionTime).SetUpdate(true);
     }

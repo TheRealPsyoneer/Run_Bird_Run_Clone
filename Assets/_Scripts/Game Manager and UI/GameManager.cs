@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
 
     public List<ChallengeSO> challenges;
 
+    public List<int> specialBirdsID;
+    public HashSet<int> cachedSpecialBirdsID;
+
     [Header("Player This Session Data")]
     public int score;
 
@@ -52,6 +55,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        cachedSpecialBirdsID = new(specialBirdsID);
 
         playerData = PlayerData.LoadData();
         if (playerData == null)
@@ -91,12 +96,27 @@ public class GameManager : MonoBehaviour
             playerData.unlockedThemes[0] = true;
             playerData.unlockedThemes[1] = true;
 
+            foreach (int ID in specialBirdsID)
+            {
+                playerData.specialBirdsID.Add(ID);
+            }
+
             playerData.isFirstTime = false;
+        }
+        else
+        {
+            foreach (int ID in specialBirdsID)
+            {
+                if (playerData.unlockedBirds[ID])
+                {
+                    cachedSpecialBirdsID.Remove(ID);
+                }
+            }
         }
 
         playerData.SaveData();
 
-        gameState = GameState.MainMenu;
+        gameState = GameState.Pause;
         lastSceneName = "Main";
     }
 
