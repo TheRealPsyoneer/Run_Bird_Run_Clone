@@ -50,6 +50,16 @@ public class MenuButtonCanvas : MonoBehaviour
         GameManager.Instance.GoToScene("Tutorial");
     }
 
+    public void ShowAchievement()
+    {
+        GoogleManager.Instance.ShowAchievement();
+    }
+
+    public void ShowLeaderboard()
+    {
+        GoogleManager.Instance.ShowLeaderboard();
+    }
+
     void HideMenu()
     {
         canvasGroup.interactable = false;

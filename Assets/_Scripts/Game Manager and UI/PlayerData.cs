@@ -13,10 +13,12 @@ public class PlayerData
     public int curChallengeProgress;
     public int challengeNumber;
     public bool isFirstTime;
-    public DateTime lastDailyPrizeDate;
+    public string lastDailyPrizeDate;
+    public float audioListenerVolume;
 
     public int birdID;
     public List<bool> unlockedBirds;
+    public int unlockedBirdsNumber;
 
     public int themeID;
     public List<bool> unlockedThemes;

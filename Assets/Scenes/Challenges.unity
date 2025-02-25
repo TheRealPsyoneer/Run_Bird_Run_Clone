@@ -783,14 +783,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1053300534829335123, guid: c9fe6eebf54bf7b439345639de9a57ee, type: 3}
-      propertyPath: m_Alpha
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6797699517929182640, guid: c9fe6eebf54bf7b439345639de9a57ee, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -226
-      objectReference: {fileID: 0}
     - target: {fileID: 9062466701864578718, guid: c9fe6eebf54bf7b439345639de9a57ee, type: 3}
       propertyPath: m_Name
       value: Challenge Detail Canvas

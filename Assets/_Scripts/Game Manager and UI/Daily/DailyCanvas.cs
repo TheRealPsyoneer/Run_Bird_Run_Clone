@@ -6,6 +6,7 @@ using UnityEngine.Networking;
 using System;
 using UnityEngine.UI;
 using DG.Tweening;
+using Newtonsoft.Json;
 
 public class DailyCanvas : MonoBehaviour
 {
@@ -88,7 +89,8 @@ public class DailyCanvas : MonoBehaviour
 
     void CheckingPlayerDaily()
     {
-        if (internetTime.Date.CompareTo(GameManager.Instance.playerData.lastDailyPrizeDate.Date) > 0)
+        DateTime playerLastDaily = JsonConvert.DeserializeObject<DateTime>(GameManager.Instance.playerData.lastDailyPrizeDate);
+        if (internetTime.Date.CompareTo(playerLastDaily.Date) > 0)
         {
             curWheel.interactable = true;
             curWheel.gameObject.GetComponent<CanvasGroup>().alpha = 1;
@@ -114,7 +116,7 @@ public class DailyCanvas : MonoBehaviour
             {
                 DailyPrize instance = Instantiate(curPrizeList[randomPrizeIndex]);
                 instance.GivePlayerReward();
-                GameManager.Instance.playerData.lastDailyPrizeDate = internetTime;
+                GameManager.Instance.playerData.lastDailyPrizeDate = JsonConvert.SerializeObject(internetTime);
                 isSpinning = false;
             });
     }

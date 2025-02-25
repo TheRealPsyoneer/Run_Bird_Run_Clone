@@ -34,6 +34,7 @@ public class ChangeTheme : SkinItem
     {
         GameManager.Instance.playerData.themeID = thisItemID;
         GameManager.Instance.playerData.SaveData();
+        //GoogleManager.Instance.CloudSave();
 
         GameManager.Instance.GoToScene("Main");
     }
@@ -52,5 +53,6 @@ public class ChangeTheme : SkinItem
         GameManager.Instance.playerData.unlockedThemes[thisItemID] = true;
         itemImage.gameObject.SetActive(true);
         GameManager.Instance.playerData.SaveData();
+        //GoogleManager.Instance.CloudSave();
     }
 }

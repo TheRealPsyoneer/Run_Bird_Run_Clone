@@ -19,8 +19,11 @@ public class CandyDailyPrize : DailyPrize
     {
         GameManager.Instance.playerData.candy += candyAmount;
         GameManager.Instance.playerData.SaveData();
+        //GoogleManager.Instance.CloudSave();
 
         candyAmountText.text = $"+{candyAmount}";
+
+        backLight.rectTransform.DOLocalRotate(new Vector3(0, 0, 360), 4, RotateMode.FastBeyond360).SetEase(Ease.Linear).SetLoops(-1);
 
         Sequence sequence = DOTween.Sequence();
         sequence.Append(backLight.rectTransform.DOScale(0, 0.5f).From());

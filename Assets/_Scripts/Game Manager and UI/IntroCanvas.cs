@@ -17,11 +17,13 @@ public class IntroCanvas : MonoBehaviour
         {
             GameManager.Instance.playerData.isFirstTime = false;
             GameManager.Instance.playerData.SaveData();
+            //GoogleManager.Instance.CloudSave();
             GameManager.Instance.GoToScene("Tutorial");
         }
         else
         {
             GameManager.Instance.GoToScene("Main");
         }
+        //AudioManager.Instance.PlayAudioClip("BGM");
     }
 }

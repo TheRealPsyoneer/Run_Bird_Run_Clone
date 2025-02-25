@@ -26,8 +26,13 @@ public class SpecialBirdDailyPrize : DailyPrize
         birdPrize.gameObject.GetComponent<Image>().sprite = GameManager.Instance.spriteLists[randomSpecialBirdIndex].sprites[0];
 
         GameManager.Instance.playerData.unlockedBirds[randomSpecialBirdIndex] = true;
+        GameManager.Instance.playerData.unlockedBirdsNumber++;
+        GameManager.Instance.CheckAchievement();
         GameManager.Instance.specialBirdsID.Remove(randomSpecialBirdIndex);
         GameManager.Instance.playerData.SaveData();
+        //GoogleManager.Instance.CloudSave();
+
+        backLight.rectTransform.DOLocalRotate(new Vector3(0,0,360), 4, RotateMode.FastBeyond360).SetEase(Ease.Linear).SetLoops(-1);
 
         Sequence sequence = DOTween.Sequence();
         sequence.Append(backLight.rectTransform.DOScale(0, 0.5f).From());

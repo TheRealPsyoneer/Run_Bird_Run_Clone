@@ -52,8 +52,11 @@ MonoBehaviour:
     curChallengeProgress: 0
     challengeNumber: 0
     isFirstTime: 0
+    lastDailyPrizeDate: 
+    audioListenerVolume: 0
     birdID: 0
     unlockedBirds: 
+    unlockedBirdsNumber: 0
     themeID: 0
     unlockedThemes: 
   gameState: 0
@@ -284,14 +287,45 @@ MonoBehaviour:
     - {fileID: 21300000, guid: ff767b7b91e473c4388b6e0f63b801a6, type: 3}
     - {fileID: 21300000, guid: 8533f6c01650fc54793481111e874ff6, type: 3}
   specialBirdsID: 06000000070000000800000009000000
+  themeLists:
+  - sprites:
+    - {fileID: -918275478, guid: 4b62bc3e49cdf62428fbf3b681878956, type: 3}
+    - {fileID: 21300000, guid: 47bd539cf08816442afd5241559563a0, type: 3}
+    - {fileID: 21300000, guid: e7c89cb10ba893f42ba74415e7f24f8b, type: 3}
+    - {fileID: 21300000, guid: 47bd539cf08816442afd5241559563a0, type: 3}
+    - {fileID: 21300000, guid: e7c89cb10ba893f42ba74415e7f24f8b, type: 3}
+    - {fileID: 21300000, guid: a36903e284b9ad0458ce8d4a4fd5cdb6, type: 3}
+    colors:
+    - {r: 0.37647063, g: 0.87843144, b: 0.64705884, a: 1}
+    - {r: 0.12941177, g: 0.67058825, b: 0.5803922, a: 1}
+  - sprites:
+    - {fileID: -388525169, guid: d2172973e3954364c91bf490ed6d7783, type: 3}
+    - {fileID: 21300000, guid: 1561ce4e7069956469cb42708b714c67, type: 3}
+    - {fileID: 21300000, guid: be93ca0c52d359942b9d5cdd0a98167a, type: 3}
+    - {fileID: 21300000, guid: 1561ce4e7069956469cb42708b714c67, type: 3}
+    - {fileID: 21300000, guid: be93ca0c52d359942b9d5cdd0a98167a, type: 3}
+    - {fileID: 21300000, guid: a36903e284b9ad0458ce8d4a4fd5cdb6, type: 3}
+    colors:
+    - {r: 0.6862745, g: 0.9294118, b: 0.9176471, a: 1}
+    - {r: 0.454902, g: 0.83921576, b: 0.8196079, a: 1}
+  - sprites:
+    - {fileID: 1672589509, guid: bfacd98fa6941cd428ec339c38371b28, type: 3}
+    - {fileID: 21300000, guid: 4006d1f4556abeb40b03726fc0acd287, type: 3}
+    - {fileID: 21300000, guid: 7fbca77ca8586914b9e6a471ad548a53, type: 3}
+    - {fileID: 21300000, guid: 4006d1f4556abeb40b03726fc0acd287, type: 3}
+    - {fileID: 21300000, guid: 7fbca77ca8586914b9e6a471ad548a53, type: 3}
+    - {fileID: 21300000, guid: 67dd6c406a9bdb74297e39b18d49cd12, type: 3}
+    colors:
+    - {r: 0.8980393, g: 0.4431373, b: 0.36078432, a: 1}
+    - {r: 0.8196079, g: 0.2784314, b: 0.1764706, a: 1}
   score: 0
   scoreDifficultyThreshold: 30
   addedScoreToChangeDifficulty: 20
   fallTimePerCell: 0.2
   dropSpeedChange: 0.025
   minSpeed: 0.051
-  waveInterval: 1.5
-  waveIntervalChange: 0.1
+  waveInterval: 2
+  waveIntervalChange: 0.2
   warningLiveTime: 1
   warningLiveTimeChange: 0.1
   scoreCandyThreshold: 50

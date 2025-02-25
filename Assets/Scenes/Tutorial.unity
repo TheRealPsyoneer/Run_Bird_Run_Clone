@@ -1446,6 +1446,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1053300534829335123, guid: c9fe6eebf54bf7b439345639de9a57ee, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6797699517929182640, guid: c9fe6eebf54bf7b439345639de9a57ee, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9062466701864578718, guid: c9fe6eebf54bf7b439345639de9a57ee, type: 3}
       propertyPath: m_Name
       value: Challenge Detail Canvas
@@ -2822,6 +2830,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1353661148932913895, guid: 350a586fe56c72f4eb4b716c93bb73d4, type: 3}
+      propertyPath: m_Alpha
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 350a586fe56c72f4eb4b716c93bb73d4, type: 3}
 --- !u!1001 &3852849714255629122
@@ -3041,6 +3053,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4233911662364955884, guid: 8f21f35a56c53494c9bf47e74eb889a3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4233911662951896376, guid: 8f21f35a56c53494c9bf47e74eb889a3, type: 3}
+      propertyPath: m_Alpha
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

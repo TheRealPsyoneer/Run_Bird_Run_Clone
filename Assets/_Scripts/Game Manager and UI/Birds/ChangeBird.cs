@@ -32,6 +32,7 @@ public class ChangeBird : SkinItem
     {
         GameManager.Instance.playerData.birdID = thisItemID;
         GameManager.Instance.playerData.SaveData();
+        //GoogleManager.Instance.CloudSave();
 
         GameManager.Instance.GoToScene("Main");
     }
@@ -48,7 +49,11 @@ public class ChangeBird : SkinItem
     void BirdUnlockAction()
     {
         GameManager.Instance.playerData.unlockedBirds[thisItemID] = true;
+        GameManager.Instance.playerData.unlockedBirdsNumber++;
+        GameManager.Instance.CheckAchievement();
+
         itemImage.gameObject.SetActive(true);
         GameManager.Instance.playerData.SaveData();
+        //GoogleManager.Instance.CloudSave();
     }
 }

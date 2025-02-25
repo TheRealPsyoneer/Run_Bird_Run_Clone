@@ -14,13 +14,6 @@ public class BackgroundControl : MonoBehaviour
 
     public List<SpriteRenderer> spriteToBeChanged;
     public List<SpriteRenderer> colorToBeChanged;
-    public List<ThemePseudoList> themeLists;
-    [Serializable]
-    public struct ThemePseudoList
-    {
-        public List<Sprite> sprites;
-        public List<Color> colors;
-    }
 
     private void Awake()
     {
@@ -55,11 +48,11 @@ public class BackgroundControl : MonoBehaviour
         //{
             for (int i = 0; i < spriteToBeChanged.Count; i++)
             {
-                spriteToBeChanged[i].sprite = themeLists[GameManager.Instance.playerData.themeID].sprites[i];
+                spriteToBeChanged[i].sprite = GameManager.Instance.themeLists[GameManager.Instance.playerData.themeID].sprites[i];
             }
             for (int i = 0; i < colorToBeChanged.Count; i++)
             {
-                colorToBeChanged[i].color = themeLists[GameManager.Instance.playerData.themeID].colors[i];
+                colorToBeChanged[i].color = GameManager.Instance.themeLists[GameManager.Instance.playerData.themeID].colors[i];
             }
         //}
     }

@@ -66,6 +66,7 @@ public class ChallengeDetailUI : MonoBehaviour
         canvasGroup.blocksRaycasts = false;
 
         GameManager.Instance.playerData.SaveData();
+        //GoogleManager.Instance.CloudSave();
     }
 
     public void ShowUI()
