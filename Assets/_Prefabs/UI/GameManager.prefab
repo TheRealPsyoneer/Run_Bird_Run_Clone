@@ -53,7 +53,7 @@ MonoBehaviour:
     challengeNumber: 0
     isFirstTime: 0
     lastDailyPrizeDate: 
-    audioListenerVolume: 0
+    soundMuted: 0
     birdID: 0
     unlockedBirds: 
     unlockedBirdsNumber: 0
@@ -323,7 +323,7 @@ MonoBehaviour:
   addedScoreToChangeDifficulty: 20
   fallTimePerCell: 0.2
   dropSpeedChange: 0.025
-  minSpeed: 0.051
+  minSpeed: 0.076
   waveInterval: 2
   waveIntervalChange: 0.2
   warningLiveTime: 1

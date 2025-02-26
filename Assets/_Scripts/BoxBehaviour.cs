@@ -11,7 +11,6 @@ public class BoxBehaviour : MonoBehaviour, IFactoryProduct
     public Stack<IFactoryProduct> pool { get; set; }
     public Vector2Int targetFallCell { get; set; }
     [SerializeField] EventSO boxFallCompleteEvent;
-    public bool isInColumnLowestQuantity;
     public bool isClimbable;
     AudioSource impactSound;
 

@@ -18,11 +18,12 @@ public class BoxAndCandySpawner : MonoBehaviour
     [SerializeField] int maxColumnQuantityDifference;
 
     int currentLowestRow;
+    int currentCameraLowestRow;
+
     [SerializeField] List<int> boxDir;
     [SerializeField] EventSO boxFallCompleteEvent;
     [SerializeField] EventSO cameraPositionChangeEvent;
     public Dictionary<BoxBehaviour, int> boxColumnNumber = new();
-    int curWaveColumnLowestQuantity;
     public bool lastWaveDropDone;
     public float WaveInterval;
 
@@ -78,6 +79,7 @@ public class BoxAndCandySpawner : MonoBehaviour
         columnHighestQuantity = 0;
         columnLowestQuantity = 0;
         currentLowestRow = 0;
+        currentCameraLowestRow = 0;
     }
 
     void SpawnRandomBoxes()
@@ -108,19 +110,21 @@ public class BoxAndCandySpawner : MonoBehaviour
                     count++;
                 }
 
-                if (count == WorldGrid.Instance.boundCellX)
-                {
-                    currentLowestRow++;
-                    columnLowestQuantity++;
-                    spawnPositionY++;
-                    cameraPositionChangeEvent.Broadcast();
-                }
-
                 if (colummBoxQuantity[i] > columnHighestQuantity)
                 {
                     columnHighestQuantity = colummBoxQuantity[i];
                 }
             }
+
+            if (count == WorldGrid.Instance.boundCellX)
+            {
+                currentLowestRow++;
+                columnLowestQuantity++;
+                spawnPositionY++;
+                currentCameraLowestRow++;
+                cameraPositionChangeEvent.Broadcast();
+            }
+
             time++;
         }
     }
@@ -202,17 +206,6 @@ public class BoxAndCandySpawner : MonoBehaviour
             fallColumns.Add(positionCellX);
         }
 
-        int lowestQuantity = int.MaxValue;
-        for (int i = 0; i < fallColumns.Count; i++)
-        {
-            if (colummBoxQuantity[fallColumns[i]] < lowestQuantity)
-            {
-                lowestQuantity = colummBoxQuantity[fallColumns[i]];
-                curWaveColumnLowestQuantity = fallColumns[i];
-            }
-        }
-
-
         return fallColumns;
     }
 
@@ -237,8 +230,6 @@ public class BoxAndCandySpawner : MonoBehaviour
             box.targetFallCell = new Vector2Int(fallColumns[i], colummBoxQuantity[fallColumns[i]]);
             boxColumnNumber[box] = fallColumns[i];
 
-            box.isInColumnLowestQuantity = fallColumns[i] == curWaveColumnLowestQuantity ? true : false;
-
             box.Falling();
 
             colummBoxQuantity[boxColumnNumber[box]]++;
@@ -247,26 +238,8 @@ public class BoxAndCandySpawner : MonoBehaviour
             {
                 columnHighestQuantity++;
             }
-
-            
         }
 
-        //int count = 0;
-        //for (int j = 0; j < WorldGrid.Instance.boundCellX; j++)
-        //{
-        //    if (colummBoxQuantity[j] > columnLowestQuantity)
-        //    {
-        //        count++;
-        //    }
-        //}
-        //if (count == WorldGrid.Instance.boundCellX)
-        //{
-            
-        //}
-    }
-
-    public void OnBoxFallComplete(BoxBehaviour box)
-    {
         int count = 0;
         for (int i = 0; i < WorldGrid.Instance.boundCellX; i++)
         {
@@ -280,7 +253,28 @@ public class BoxAndCandySpawner : MonoBehaviour
             currentLowestRow++;
             columnLowestQuantity++;
             spawnPositionY++;
+        }
+
+        //int count = 0;
+        //for (int j = 0; j < WorldGrid.Instance.boundCellX; j++)
+        //{
+        //    if (colummBoxQuantity[j] > columnLowestQuantity)
+        //    {
+        //        count++;
+        //    }
+        //}
+        //if (count == WorldGrid.Instance.boundCellX)
+        //{
+
+        //}
+    }
+
+    public void OnBoxFallComplete(BoxBehaviour box)
+    {
+        if (currentCameraLowestRow < currentLowestRow)
+        {
             cameraPositionChangeEvent.Broadcast();
+            currentCameraLowestRow++;
         }
     }
 
