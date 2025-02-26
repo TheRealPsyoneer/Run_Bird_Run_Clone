@@ -59,12 +59,12 @@ public class BackgroundControl : MonoBehaviour
 
     void MoveCameraAndBackground()
     {
-        Camera.main.transform.DOMoveY(Camera.main.transform.position.y + WorldGrid.Instance.CelValue, 1);
+        Camera.main.transform.DOMoveY(Camera.main.transform.position.y + WorldGrid.Instance.CellValue, 1);
         for (int i = 1; i < objects.Length; i++)
         {
             if (moveScale[i] != 0)
             {
-                objects[i].DOLocalMoveY(objects[i].localPosition.y + WorldGrid.Instance.CelValue * moveScale[i], 1);
+                objects[i].DOLocalMoveY(objects[i].localPosition.y + WorldGrid.Instance.CellValue * moveScale[i], 1);
             }
         }
     }

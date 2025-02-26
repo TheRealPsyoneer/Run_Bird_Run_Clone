@@ -64,6 +64,8 @@ public class Candy : MonoBehaviour, IFactoryProduct
     {
         if (collision.gameObject.CompareTag("Bird"))
         {
+            AudioManager.Instance.PlayAudioClip("Candy");
+
             col.enabled = false;
 
             GameManager.Instance.playerData.candy += value;
@@ -74,7 +76,7 @@ public class Candy : MonoBehaviour, IFactoryProduct
             }
 
             PlusCandy instance = (PlusCandy) plusCandyFactory.GetProduct();
-            instance.transform.position = transform.position + new Vector3(0,WorldGrid.Instance.CelValue * 0.5f);
+            instance.transform.position = transform.position + new Vector3(0,WorldGrid.Instance.CellValue * 0.5f);
             instance.FlyUp();
 
             transform.DOKill();

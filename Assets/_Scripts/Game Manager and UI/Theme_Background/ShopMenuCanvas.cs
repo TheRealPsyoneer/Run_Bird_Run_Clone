@@ -20,6 +20,7 @@ public class ShopMenuCanvas : MonoBehaviour
 
     public void ReturnToMenu()
     {
+        AudioManager.Instance.PlayAudioClip("Button");
         GameManager.Instance.GoToScene("Main");
     }
 }

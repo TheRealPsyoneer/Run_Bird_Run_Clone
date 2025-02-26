@@ -13,6 +13,7 @@ public class UnlockWithSpecial : UnlockableItem
 
     public void RedirectToDaily()
     {
+        AudioManager.Instance.PlayAudioClip("Error");
         GameManager.Instance.GoToScene("Daily");
     }
 }

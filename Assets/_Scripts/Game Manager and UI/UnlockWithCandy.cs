@@ -23,6 +23,8 @@ public class UnlockWithCandy : UnlockableItem
     {
         if (GameManager.Instance.playerData.candy >= candyPrice)
         {
+            AudioManager.Instance.PlayAudioClip("ItemUnlock");
+
             unlockConditionCover.interactable = false;
 
             int startCandy = GameManager.Instance.playerData.candy;
@@ -37,6 +39,10 @@ public class UnlockWithCandy : UnlockableItem
             unlockableItem.unlockedEvent.Broadcast();
 
             unlockConditionCover.DOFade(0, 1).OnComplete(() => unlockConditionCover.gameObject.SetActive(false));
+        }
+        else
+        {
+            AudioManager.Instance.PlayAudioClip("Error");
         }
     }
 }

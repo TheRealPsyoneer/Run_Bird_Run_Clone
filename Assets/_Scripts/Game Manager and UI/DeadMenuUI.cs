@@ -39,16 +39,25 @@ public class DeadMenuUI : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.2f);
         canvasGroups[1].DOFade(1, 0.2f).SetUpdate(true);
         canvasGroups[1].blocksRaycasts = true;
-        yield return new WaitForSecondsRealtime(0.2f);
-        canvasGroups[2].DOFade(1, 0.2f).SetUpdate(true);
-        canvasGroups[2].blocksRaycasts = true;
         interactable = true;
+    }
+
+    public void ShowAchievement()
+    {
+        AudioManager.Instance.PlayAudioClip("Button");
+        GoogleManager.Instance.ShowAchievement();
+    }
+
+    public void ShowLeaderboard()
+    {
+        AudioManager.Instance.PlayAudioClip("Button");
+        GoogleManager.Instance.ShowLeaderboard();
     }
 
     public void Replay()
     {
         if (!interactable) return;
-
+        AudioManager.Instance.PlayAudioClip("Button");
         GameManager.Instance.GameRestart();
     }
 }

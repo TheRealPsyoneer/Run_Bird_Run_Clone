@@ -14,7 +14,7 @@ public class PlayerData
     public int challengeNumber;
     public bool isFirstTime;
     public string lastDailyPrizeDate;
-    public float audioListenerVolume;
+    public bool soundMuted;
 
     public int birdID;
     public List<bool> unlockedBirds;

@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class IntroCanvas : MonoBehaviour
 {
     [SerializeField] float introTime;
     void Start()
     {
+        TransitionUI.Instance.TransitionOut();
         StartCoroutine(LoadGame());
     }
 
@@ -18,12 +20,11 @@ public class IntroCanvas : MonoBehaviour
             GameManager.Instance.playerData.isFirstTime = false;
             GameManager.Instance.playerData.SaveData();
             //GoogleManager.Instance.CloudSave();
-            GameManager.Instance.GoToScene("Tutorial");
+            SceneManager.LoadScene("Tutorial");
         }
         else
         {
-            GameManager.Instance.GoToScene("Main");
+            SceneManager.LoadScene("Main");
         }
-        //AudioManager.Instance.PlayAudioClip("BGM");
     }
 }

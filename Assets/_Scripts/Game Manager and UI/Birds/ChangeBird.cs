@@ -30,6 +30,7 @@ public class ChangeBird : SkinItem
 
     public void ChangeBirdIndex()
     {
+        AudioManager.Instance.PlayAudioClip("ItemClick");
         GameManager.Instance.playerData.birdID = thisItemID;
         GameManager.Instance.playerData.SaveData();
         //GoogleManager.Instance.CloudSave();

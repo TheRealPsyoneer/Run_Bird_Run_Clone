@@ -17,6 +17,8 @@ public class CandyDailyPrize : DailyPrize
 
     public override void GivePlayerReward()
     {
+        AudioManager.Instance.PlayAudioClip("DailyPrize");
+
         GameManager.Instance.playerData.candy += candyAmount;
         GameManager.Instance.playerData.SaveData();
         //GoogleManager.Instance.CloudSave();
@@ -35,6 +37,7 @@ public class CandyDailyPrize : DailyPrize
 
     public void ReturnToMainMenu()
     {
+        AudioManager.Instance.PlayAudioClip("Button");
         GameManager.Instance.GoToScene("Main");
     }
 }

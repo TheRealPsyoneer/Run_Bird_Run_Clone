@@ -106,9 +106,11 @@ public class DailyCanvas : MonoBehaviour
     {
         if (isSpinning) return;
 
+        AudioManager.Instance.PlayAudioClip("Wheel");
+        AudioManager.Instance.PlayAudioClip("Spin");
         isSpinning = true;
         int randomPrizeIndex = UnityEngine.Random.Range(0, 8);
-        float targetRotation = 15 * 360f + UnityEngine.Random.Range(1f,44f) + 45f * randomPrizeIndex;
+        float targetRotation = 10 * 360f + UnityEngine.Random.Range(1f,44f) + 45f * randomPrizeIndex;
 
 
         curWheel.gameObject.GetComponent<Image>().rectTransform.DOLocalRotate(new Vector3(0, 0, targetRotation), 5, RotateMode.FastBeyond360).SetEase(Ease.OutCubic)
@@ -124,6 +126,7 @@ public class DailyCanvas : MonoBehaviour
     public void ReturnToMenu()
     {
         if (isSpinning) return;
+        AudioManager.Instance.PlayAudioClip("Button");
         GameManager.Instance.GoToScene("Main");
     }
 }

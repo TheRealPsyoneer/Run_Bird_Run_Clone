@@ -13,13 +13,10 @@ public class SpecialBirdDailyPrize : DailyPrize
     [SerializeField] CanvasGroup birdPrize;
     [SerializeField] CanvasGroup takeButton;
 
-    public void ReturnToMainMenu()
-    {
-        GameManager.Instance.GoToScene("Main");
-    }
-
     public override void GivePlayerReward()
     {
+        AudioManager.Instance.PlayAudioClip("DailyPrize");
+
         List<int> IDs = new(GameManager.Instance.cachedSpecialBirdsID);
         int randomSpecialBirdIndex = IDs[Random.Range(0, IDs.Count)];
 
@@ -39,5 +36,10 @@ public class SpecialBirdDailyPrize : DailyPrize
         sequence.Append(birdPrize.DOFade(1, 0.5f));
         sequence.Append(takeButton.DOFade(1, 0.5f));
         sequence.Join(takeButton.gameObject.GetComponent<Image>().rectTransform.DOLocalMoveY(-355, 0.5f));
+    }
+    public void ReturnToMainMenu()
+    {
+        AudioManager.Instance.PlayAudioClip("Button");
+        GameManager.Instance.GoToScene("Main");
     }
 }

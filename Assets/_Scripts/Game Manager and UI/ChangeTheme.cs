@@ -32,6 +32,8 @@ public class ChangeTheme : SkinItem
 
     public void ChangeThemeIndex()
     {
+        AudioManager.Instance.PlayAudioClip("ItemClick");
+
         GameManager.Instance.playerData.themeID = thisItemID;
         GameManager.Instance.playerData.SaveData();
         //GoogleManager.Instance.CloudSave();

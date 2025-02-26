@@ -13,6 +13,12 @@ public class BoxBehaviour : MonoBehaviour, IFactoryProduct
     [SerializeField] EventSO boxFallCompleteEvent;
     public bool isInColumnLowestQuantity;
     public bool isClimbable;
+    AudioSource impactSound;
+
+    private void Awake()
+    {
+        impactSound = GetComponent<AudioSource>();
+    }
 
     public void Initialize()
     {
@@ -32,6 +38,7 @@ public class BoxBehaviour : MonoBehaviour, IFactoryProduct
 
     void WhenComplete()
     {
+        impactSound.Play();
         boxFallCompleteEvent.Broadcast(this);
         boxFallCompleteEvent.Broadcast();
         isClimbable = true;

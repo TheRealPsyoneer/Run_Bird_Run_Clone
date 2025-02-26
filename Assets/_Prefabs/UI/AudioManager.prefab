@@ -44,5 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0124e5d9b2c1e3428d22813b7e33786, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSOList: []
-  isMuted: 0
+  audioMixer: {fileID: 24100000, guid: 4cf4587edbed60d42983243e8ae96ae1, type: 2}
+  audioMixerMaster: {fileID: 24300002, guid: 4cf4587edbed60d42983243e8ae96ae1, type: 2}
+  audioSOList:
+  - {fileID: 11400000, guid: 435f54f354fe45e4e8b49b58f6f63a10, type: 2}
+  - {fileID: 11400000, guid: 6831f6b98eee18b46bbfde0be266d16b, type: 2}
+  - {fileID: 11400000, guid: 0c60b461997187b46a761349033ee5e0, type: 2}
+  - {fileID: 11400000, guid: ed8f2c1261711554fa7134ae020032e8, type: 2}
+  - {fileID: 11400000, guid: f2a21735369632e42b12f7f29f73dac7, type: 2}
+  - {fileID: 11400000, guid: 0c65ad37b4451984b8632e56e36d8ed6, type: 2}
+  - {fileID: 11400000, guid: f4922c4f18594ba46b9e645d377fe165, type: 2}
+  - {fileID: 11400000, guid: f8a38bf631848754b84108e9fbdd287e, type: 2}
+  - {fileID: 11400000, guid: 138d865fac440e149b080c96d12b447b, type: 2}
+  - {fileID: 11400000, guid: b14e59a17b5e47c4891abb54a3b4e0e1, type: 2}
+  - {fileID: 11400000, guid: 21369918b30b1de41935918e43dfd356, type: 2}

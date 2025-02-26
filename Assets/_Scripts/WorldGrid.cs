@@ -7,7 +7,7 @@ public class WorldGrid : MonoBehaviour
     public static WorldGrid Instance;
     Grid grid;
     public int boundCellX;
-    public float CelValue { get { return grid.cellSize.x; } }
+    public float CellValue { get { return grid.cellSize.x; } }
 
     private void Awake()
     {

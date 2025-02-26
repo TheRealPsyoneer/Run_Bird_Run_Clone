@@ -28,6 +28,7 @@ public class UnlockWithChallenge : UnlockableItem
 
         if (GameManager.Instance.playerData.challengeNumber >= challengeThreshold)
         {
+            AudioManager.Instance.PlayAudioClip("ItemUnlock");
             unlockableItem.unlockedEvent.Broadcast();
             unlockConditionCover.DOFade(0, 1).OnComplete(() => unlockConditionCover.gameObject.SetActive(false));
         }
@@ -35,6 +36,7 @@ public class UnlockWithChallenge : UnlockableItem
 
     public void RedirectToChallenges()
     {
+        AudioManager.Instance.PlayAudioClip("Error");
         GameManager.Instance.GoToScene("Challenges");
     }
 }

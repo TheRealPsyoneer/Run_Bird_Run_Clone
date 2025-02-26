@@ -116,7 +116,7 @@ public class GameManager : MonoBehaviour
             playerData.unlockedThemes[0] = true;
             playerData.unlockedThemes[1] = true;
             playerData.lastDailyPrizeDate = JsonConvert.SerializeObject(DateTime.MinValue);
-            playerData.audioListenerVolume = 1;
+            playerData.soundMuted = false;
         }
         else
         {
@@ -194,14 +194,20 @@ public class GameManager : MonoBehaviour
 
     void GameOver()
     {
+
         gameState = GameState.Pause;
         Time.timeScale = 0;
+
+        if (playerData.gamesPlayed % 5 == 0)
+        {
+            InterstitialAd.Instance.ShowAd();
+        }
 
         if (score > playerData.bestScore)
         {
             playerData.bestScore = score;
 
-            InterstitialAd.Instance.ShowAd();
+            
 
             if (Social.localUser.authenticated)
             {
@@ -216,12 +222,15 @@ public class GameManager : MonoBehaviour
 
         if (playerData.curChallengeProgress >= challenges[playerData.challengeNumber].goal)
         {
+            AudioManager.Instance.PlayAudioClip("ChallengeWin");
             ChallengeDetailUI.Instance.ShowCompleteChallengeSequence();
 
             StartCoroutine(DelayShowEndScreen());
         }
         else
         {
+            AudioManager.Instance.PlayAudioClip("Die");
+
             if (challenges[playerData.challengeNumber].challengeType == ChallengeType.ScoreSingleGame
                 || challenges[playerData.challengeNumber].challengeType == ChallengeType.CollectCandiesSingleGame)
             {
