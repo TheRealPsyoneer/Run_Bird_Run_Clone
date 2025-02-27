@@ -198,7 +198,7 @@ public class GameManager : MonoBehaviour
         gameState = GameState.Pause;
         Time.timeScale = 0;
 
-        if (playerData.gamesPlayed % 5 == 0)
+        if (playerData.gamesPlayed % 4 == 0)
         {
             InterstitialAd.Instance.ShowAd();
         }
@@ -224,8 +224,6 @@ public class GameManager : MonoBehaviour
         {
             AudioManager.Instance.PlayAudioClip("ChallengeWin");
             ChallengeDetailUI.Instance.ShowCompleteChallengeSequence();
-
-            StartCoroutine(DelayShowEndScreen());
         }
         else
         {
@@ -242,15 +240,6 @@ public class GameManager : MonoBehaviour
             MenuUI.Instance.ShowText();
             DeadMenuUI.Instance.ShowMenu();
         }
-
-        
-    }
-
-    IEnumerator DelayShowEndScreen()
-    {
-        yield return new WaitForSecondsRealtime(6.5f);
-        MenuUI.Instance.ShowText();
-        DeadMenuUI.Instance.ShowMenu();
     }
 
     void IncreaseScore()

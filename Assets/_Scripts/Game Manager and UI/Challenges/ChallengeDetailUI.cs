@@ -67,6 +67,10 @@ public class ChallengeDetailUI : MonoBehaviour
 
         GameManager.Instance.playerData.SaveData();
         //GoogleManager.Instance.CloudSave();
+
+        yield return new WaitForSecondsRealtime(0.75f);
+        MenuUI.Instance.ShowText();
+        DeadMenuUI.Instance.ShowMenu();
     }
 
     public void ShowUI()

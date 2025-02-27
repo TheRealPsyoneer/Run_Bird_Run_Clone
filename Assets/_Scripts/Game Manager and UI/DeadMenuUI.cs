@@ -33,7 +33,7 @@ public class DeadMenuUI : MonoBehaviour
 
     IEnumerator StartShowing()
     {
-        yield return new WaitForSecondsRealtime(1);
+        yield return new WaitForSecondsRealtime(0.75f);
         canvasGroups[0].DOFade(1, 0.2f).SetUpdate(true);
         canvasGroups[0].blocksRaycasts = true;
         yield return new WaitForSecondsRealtime(0.2f);
